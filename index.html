@@ -1,1439 +1,239 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <title>Ezra Tawachi – Portfolio</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <meta
-      name="description"
-      content="Portafolio profesional de Ezra Tawachi: experiencia en operaciones, tecnología, automatización, logros y proyectos destacados."
-    />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@600&display=swap");
-      .pill-toggle {
-        position: relative;
-        display: inline-flex;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 999px;
-        padding: 4px;
-        gap: 4px;
-        margin-top: 6px;
-        font-size: var(--fs-sm);
-        width: fit-content;
-        overflow: hidden;
-      }
-      .pill-toggle span {
-        padding: 6px 16px;
-        border-radius: 999px;
-        cursor: default;
-        color: var(--muted);
-        position: relative;
-        z-index: 2;
-      }
-      .pill-toggle .slider {
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        bottom: 4px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        border-radius: 999px;
-        transition: transform 0.4s ease, width 0.4s ease;
-        z-index: 1;
-      }
-      .pill-toggle span.active {
-        color: #fff;
-        font-weight: 500;
-      }
-      /* ============ THEME TOKENS ============ */
-      :root {
-        --bg: #0b0d10;
-        --bg-soft: #111418;
-        --card: #151a20;
-        --text: #e8edf2;
-        --muted: #9aa7b3;
-        --accent: #27c1a5;
-        --accent-2: #06b6d4;
-        --ring: rgba(39, 193, 165, 0.35);
-        --shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
-        --radius: 18px;
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ezra Tawachi — Operaciones y Automatización</title>
+<meta name="description" content="Operaciones y Automatización · SAP y E-commerce. Panamá.">
+<link rel="icon" href="favicon.png">
+<style>
+  :root{
+    --tinta:#1a2530; --petroleo:#0e4a55; --terracota:#b45a30; --suave:#5d6b76;
+    --papel:#f4f1e9; --fondo:#fffdfa; --linea:#ded8cc;
+    --serif:"Charter","Bitstream Charter","Iowan Old Style",Georgia,serif;
+    --sans:"Avenir Next",Avenir,"Segoe UI",system-ui,-apple-system,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --tinta:#e9e5dd; --petroleo:#78b8c4; --terracota:#e2925f; --suave:#a0abb4;
+            --papel:#1b232a; --fondo:#131920; --linea:#2c3740; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--fondo);color:var(--tinta);
+       font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--petroleo)}
+  .franja{height:6px;display:flex}
+  .franja i{height:100%}
+  .franja i:first-child{flex:1;background:var(--petroleo)}
+  .franja i:last-child{flex:0 0 22%;background:var(--terracota)}
+  .hoja{max-width:1020px;margin:0 auto;padding:0 22px 64px}
 
-        /* fluid type & spacing */
-        --fs-xs: clamp(12px, 0.8rem + 0.1vw, 13px);
-        --fs-sm: clamp(13px, 0.85rem + 0.15vw, 14px);
-        --fs-md: clamp(15px, 0.95rem + 0.2vw, 16px);
-        --fs-lg: clamp(18px, 1.05rem + 0.6vw, 22px);
-        --fs-xl: clamp(24px, 1.3rem + 1.2vw, 32px);
-        --fs-2xl: clamp(28px, 1.6rem + 2vw, 40px);
+  header.cabecera{padding:52px 0 30px;border-bottom:2px solid var(--petroleo)}
+  h1{font-family:var(--serif);font-size:clamp(2.3rem,6.5vw,3.3rem);line-height:1;letter-spacing:-.02em}
+  .regla{width:46px;height:4px;background:var(--terracota);margin:16px 0 14px}
+  .titular{font-size:.9rem;font-weight:600;text-transform:uppercase;
+           letter-spacing:.06em;color:var(--petroleo)}
+  .btn{display:inline-block;margin-top:22px;padding:11px 22px;border-radius:3px;
+       background:var(--petroleo);color:var(--fondo);font-size:.9rem;font-weight:600;
+       text-decoration:none}
+  .btn:hover{opacity:.87}
 
-        --space-1: clamp(6px, 0.25rem + 0.2vw, 10px);
-        --space-2: clamp(10px, 0.5rem + 0.4vw, 14px);
-        --space-3: clamp(14px, 0.7rem + 0.6vw, 20px);
-        --space-4: clamp(18px, 1rem + 0.8vw, 26px);
-        --space-5: clamp(22px, 1.2rem + 1vw, 32px);
-      }
-      .light {
-        --bg: #f7fafc;
-        --bg-soft: #f0f3f6;
-        --card: #ffffff;
-        --text: #0f1720;
-        --muted: #485564;
-        --accent: #0ea5a5;
-        --accent-2: #0891b2;
-        --ring: rgba(8, 145, 178, 0.25);
-        --shadow: 0 8px 28px rgba(2, 8, 23, 0.08);
-      }
+  .cuerpo{display:grid;gap:36px;padding-top:30px}
+  @media(min-width:860px){
+    .cuerpo{grid-template-columns:1fr 292px;gap:46px;align-items:start}
+    .lateral{position:sticky;top:24px}
+  }
 
-      /* ============ BASE ============ */
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        min-height: 100vh;
-      }
+  section{margin-bottom:34px}
+  section:last-child{margin-bottom:0}
+  h2{font-family:var(--serif);font-size:.86rem;font-weight:700;text-transform:uppercase;
+     letter-spacing:.1em;color:var(--petroleo);margin-bottom:16px}
+  h2::before{content:"";display:block;width:22px;height:3px;background:var(--terracota);margin-bottom:9px}
 
-      body {
-        margin: 0;
-        background: linear-gradient(180deg, var(--bg), var(--bg-soft));
-        background-attachment: fixed;
-        color: var(--text);
-        font: 400 var(--fs-md) / 1.6 "Inter", system-ui, -apple-system, Segoe UI,
-          Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial,
-          "Apple Color Emoji", "Segoe UI Emoji";
-        letter-spacing: 0.1px;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      img,
-      svg,
-      video {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-      a:hover {
-        opacity: 0.9;
-      }
-      :focus-visible {
-        outline: 2px solid var(--accent-2);
-        outline-offset: 3px;
-        border-radius: 8px;
-      }
+  .puesto{margin-bottom:26px}
+  .puesto:last-child{margin-bottom:0}
+  .puesto-top{display:flex;flex-wrap:wrap;justify-content:space-between;
+              align-items:baseline;gap:6px}
+  .puesto h3{font-family:var(--serif);font-size:1.14rem;font-weight:700;line-height:1.25}
+  .cuando{font-size:.76rem;color:var(--suave);text-transform:uppercase;letter-spacing:.05em;
+          white-space:nowrap}
+  .empresa{color:var(--petroleo);font-weight:600;font-size:.95rem;margin-top:1px}
+  .alcance{font-style:italic;color:var(--suave);font-size:.93rem;margin-top:6px}
+  .puesto ul{list-style:none;margin-top:10px}
+  .puesto li{position:relative;padding-left:16px;margin-bottom:6px;font-size:.96rem}
+  .puesto li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:2px;
+                     background:var(--terracota);opacity:.8}
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: var(--space-3) var(--space-2) var(--space-4);
-      }
+  .lista{list-style:none}
+  .lista li{position:relative;padding-left:15px;margin-bottom:8px;font-size:.94rem}
+  .lista li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;
+                    border-radius:50%;background:var(--petroleo)}
+  .lista .donde{color:var(--suave)}
 
-      /* ============ HEADER ============ */
-      header.site {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        backdrop-filter: saturate(140%) blur(8px);
-        background: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.35),
-          rgba(0, 0, 0, 0)
-        );
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      }
-      .nav {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: var(--space-2);
-        padding: var(--space-2) var(--space-2);
-      }
-      .brand {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: center;
-        gap: 12px;
-        min-width: 0;
-      }
-      .logo {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        box-shadow: 0 4px 18px var(--ring);
-        flex-shrink: 0;
-      }
-      .brand h1 {
-        font-size: var(--fs-lg);
-        margin: 0;
-        letter-spacing: 0.4px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .brand small {
-        display: block;
-        color: var(--muted);
-        margin-top: 2px;
-        font-size: var(--fs-sm);
-      }
+  .caja{background:var(--papel);border-radius:5px;padding:20px 20px 22px}
+  .caja + .caja{margin-top:18px}
+  .caja h2{margin-bottom:14px}
+  .dato{margin-bottom:11px}
+  .dato:last-child{margin-bottom:0}
+  .et{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;
+      color:var(--terracota);margin-bottom:1px}
+  .val{font-size:.93rem;word-break:break-word}
+  .grupo{margin-bottom:14px}
+  .grupo:last-child{margin-bottom:0}
+  .grupo strong{display:block;font-family:var(--serif);font-size:.95rem;margin-bottom:2px}
+  .grupo span{font-size:.88rem;color:var(--suave)}
+  .idioma{display:flex;justify-content:space-between;gap:10px;padding:5px 0;
+          border-bottom:1px solid var(--linea);font-size:.93rem}
+  .idioma:last-child{border-bottom:0}
+  .idioma b{font-weight:600}
+  .idioma span{color:var(--suave);font-size:.87rem}
+  .ref strong{display:block;font-size:1rem;font-family:var(--serif)}
+  .ref span{font-size:.9rem;color:var(--suave)}
+  .nota{margin-top:12px;font-size:.82rem;color:var(--suave)}
 
-      .actions {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        justify-self: end;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 12px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: var(--card);
-        color: var(--text);
-        box-shadow: var(--shadow);
-        cursor: pointer;
-        transition: transform 0.2s ease;
-        font-size: var(--fs-sm);
-        min-height: 40px;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-      }
-      .btn.primary {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: white;
-        border-color: transparent;
-      }
+  footer{border-top:1px solid var(--linea);margin-top:46px;padding-top:24px;
+         font-size:.87rem;color:var(--suave)}
+</style>
+</head>
+<body>
 
-      /* ============ HERO ============ */
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-        gap: var(--space-4);
-        padding: var(--space-4) 0 var(--space-2);
-        align-items: stretch;
-      }
-      .hero > div:last-child {
-        display: flex;
-        flex-direction: column;
-      }
-      .title {
-        font-size: var(--fs-2xl);
-        line-height: 1.15;
-        letter-spacing: 0.2px;
-        margin: 0 0 6px;
-      }
-      .subtitle {
-        color: var(--muted);
-        margin: 6px 0 var(--space-2);
-        font-size: var(--fs-sm);
-      }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .chip {
-        font-size: 12px;
-        padding: 6px 14px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: white;
-        font-weight: 500;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-        transition: transform 0.2s ease;
-      }
-      .chip:hover {
-        transform: translateY(-2px) scale(1.05);
-      }
+<div class="franja"><i></i><i></i></div>
 
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        margin-top: 8px;
-      }
-      .stat {
-        background: var(--card);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: var(--radius);
-        padding: 12px;
-      }
-      .stat h3 {
-        margin: 0;
-        font-size: clamp(18px, 1rem + 0.6vw, 22px);
-        text-transform: none;
-        font-variant: normal;
-      }
-      .stat p {
-        margin: 2px 0 0;
-        color: var(--muted);
-        font-size: var(--fs-xs);
-        text-transform: capitalize;
-      }
+<div class="hoja">
 
-      .card {
-        background: var(--card);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: var(--radius);
-        padding: var(--space-3) var(--space-3) var(--space-2);
-        box-shadow: var(--shadow);
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-      .card :last-child {
-        margin-bottom: 0;
-      }
-      #contacto {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 32px 26px;
-        gap: 20px;
-        text-align: center;
-        border-radius: var(--radius);
-        background: var(--card);
-        box-shadow: var(--shadow);
-        border: none;
-      }
-      #contacto h2 {
-        margin: 0 0 10px;
-        font-size: clamp(20px, 1.2rem + 0.5vw, 26px);
-        font-weight: 700;
-        color: var(--text);
-        border-bottom: 2px solid var(--accent);
-        padding-bottom: 6px;
-        width: 100%;
-        text-align: center;
-      }
-      #contacto .muted {
-        font-size: var(--fs-sm);
-        color: var(--muted);
-        margin: 0 0 12px;
-      }
-      #contacto .pill-group {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-      }
-      #contacto .chip {
-        font-size: var(--fs-sm);
-        padding: 6px 14px;
-        border-radius: 999px;
-        border: 1px solid var(--accent);
-        color: var(--accent);
-        background: transparent;
-        transition: all 0.2s ease;
-      }
-      #contacto .chip:hover {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: white;
-      }
-      #contacto .info-links {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-      }
-      #contacto .info-links a {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 14px;
-        font-size: var(--fs-md);
-        font-weight: 500;
-        letter-spacing: 0.2px;
-        padding: 12px 16px;
-        border-radius: 10px;
-        background: var(--bg-soft);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: background 0.25s ease, transform 0.2s ease;
-        line-height: 1.4;
-      }
-      #contacto .info-links a:hover {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: white;
-        transform: translateY(-2px);
-      }
-      #contacto .info-links a span.icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        height: 28px;
-        font-size: 16px;
-        border-radius: 6px;
-        background: rgba(255, 255, 255, 0.12);
-        flex-shrink: 0;
-      }
-      #contacto .info-links a:hover span.icon {
-        background: rgba(255, 255, 255, 0.25);
-      }
-      .card h2 {
-        font-size: clamp(18px, 1rem + 0.8vw, 22px);
-        font-weight: 700;
-        border-bottom: 2px solid var(--accent);
-        padding-bottom: 6px;
-        margin-bottom: 14px;
-      }
-      .card h3 {
-        font-size: clamp(15px, 0.95rem + 0.4vw, 18px);
-        font-weight: 600;
-        color: var(--accent-2);
-      }
-      .muted {
-        color: var(--muted);
-      }
+  <header class="cabecera">
+    <h1>Ezra Tawachi</h1>
+    <div class="regla"></div>
+    <div class="titular">Operaciones y Automatización · SAP y E-commerce</div>
+    <a class="btn" href="CV-Ezra-Tawachi.pdf">Descargar CV en PDF</a>
+  </header>
 
-      /* ============ GRID LAYOUT (TWO BALANCED COLUMNS) ============ */
-      .grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: var(--space-4);
-        margin-top: var(--space-3);
-        align-items: start;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
+  <div class="cuerpo">
 
-      .col-left,
-      .col-right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        gap: var(--space-4);
-      }
-
-      /* ============ TIMELINE ============ */
-      .timeline {
-        position: relative;
-      }
-      .timeline::before {
-        content: "";
-        position: absolute;
-        top: 6px;
-        bottom: 6px;
-        left: 10px;
-        width: 2px;
-        background: linear-gradient(var(--accent), transparent);
-      }
-      .tl-item {
-        position: relative;
-        padding-left: 34px;
-        margin: 16px 0;
-      }
-      .tl-item::after {
-        content: "";
-        position: absolute;
-        left: 3px;
-        top: 6px;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        box-shadow: 0 0 0 4px rgba(39, 193, 165, 0.18);
-      }
-      .tl-item small {
-        color: var(--muted);
-        display: block;
-        margin-bottom: 6px;
-        font-size: var(--fs-xs);
-      }
-      .tl-item ul {
-        padding-left: 18px;
-        margin: 8px 0 0;
-      }
-      .tl-item ul li {
-        margin-bottom: 6px;
-      }
-      .tl-item ul li::marker {
-        color: var(--accent);
-        font-weight: 700;
-      }
-
-      /* ============ SKILLS ============ */
-      .skill {
-        margin: 12px 0;
-      }
-      .skill b {
-        display: flex;
-        justify-content: space-between;
-        font-weight: 600;
-        font-size: var(--fs-sm);
-        gap: 8px;
-      }
-      .skill b span {
-        font-size: var(--fs-xs);
-        background: rgba(255, 255, 255, 0.08);
-        padding: 2px 6px;
-        border-radius: 6px;
-      }
-      .bar {
-        height: 10px;
-        background: rgba(255, 255, 255, 0.06);
-        border-radius: 999px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
-      .bar > span {
-        display: block;
-        height: 100%;
-        width: 0;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
-        box-shadow: 0 0 18px var(--ring) inset;
-        transition: width 1.2s ease;
-      }
-      /* ============ CHIPS ROW (compact) ============ */
-      .chips-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: 10px;
-      }
-      .chips-row .pill,
-      .chips-row .chip {
-        font-size: 11px;
-        padding: 4px 10px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--muted);
-      }
-      .light .chips-row .pill,
-      .light .chips-row .chip {
-        background: rgba(2, 8, 23, 0.06);
-      }
-      /* ============ HIGHLIGHT ============ */
-      .highlight {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: white;
-        padding: 12px 16px;
-        border-radius: var(--radius);
-        margin-top: 14px;
-      }
-      .highlight h3 {
-        margin-top: 0;
-        color: white;
-      }
-
-      /* ============ PROJECT CARDS ============ */
-
-      /* ============ KPIs (Logros) ============ */
-      .kpis {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        margin-top: 10px;
-      }
-      .kpi {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 12px;
-        text-align: center;
-      }
-      .kpi strong {
-        display: block;
-        font-size: clamp(22px, 1.2rem + 0.8vw, 28px);
-        line-height: 1.1;
-      }
-      .kpi span {
-        display: block;
-        color: var(--muted);
-        font-size: var(--fs-xs);
-        margin-top: 4px;
-      }
-      .light .kpi {
-        background: rgba(2, 8, 23, 0.05);
-      }
-      .proj {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 12px;
-      }
-      .pill {
-        display: inline-block;
-        font-size: 11px;
-        padding: 3px 8px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--muted);
-        margin-right: 6px;
-        margin-top: 6px;
-      }
-
-      /* ============ FOOTER ============ */
-      footer {
-        margin-top: var(--space-3);
-        color: var(--muted);
-        font-size: var(--fs-sm);
-        padding-bottom: 0;
-      }
-      /* Gracias card stretches to fill remaining space */
-      /* .col-right > article:last-child {
-        flex-grow: 1;
-      } */
-      .col-right > article:last-child {
-        margin-bottom: 0 !important;
-      }
-
-      /* ============ WHATSAPP FLOAT ============ */
-      .whatsapp-float {
-        position: fixed;
-        bottom: max(20px, env(safe-area-inset-bottom));
-        right: max(20px, env(safe-area-inset-right));
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: #fff;
-        font-size: 24px;
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: var(--shadow);
-        z-index: 50;
-      }
-
-      /* ============ SCROLL TO TOP BUTTON ============ */
-      #scrollTopBtn {
-        position: fixed;
-        top: max(20px, env(safe-area-inset-top));
-        right: max(20px, env(safe-area-inset-right));
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        background: rgba(0, 0, 0, 0.45);
-        backdrop-filter: blur(4px);
-        color: #fff;
-        font-size: 18px;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        box-shadow: var(--shadow);
-        cursor: pointer;
-        z-index: 50;
-      }
-      #scrollTopBtn:hover {
-        opacity: 0.9;
-        transform: translateY(-2px);
-      }
-
-      /* ============ RESPONSIVE REFINEMENTS ============ */
-      @media (max-width: 980px) {
-        .hero {
-          grid-template-columns: 1fr;
-        }
-        .stats {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .actions .btn {
-          min-height: 38px;
-          padding: 8px 10px;
-        }
-        .grid {
-          grid-template-columns: 1fr;
-          gap: var(--space-3);
-          margin-bottom: 0;
-        }
-        .col-left,
-        .col-right {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-3);
-          justify-content: flex-start;
-        }
-        footer {
-          margin-top: var(--space-2);
-        }
-      }
-      @media (max-width: 680px) {
-        .nav {
-          grid-template-columns: 1fr;
-          gap: 10px;
-        }
-        .actions {
-          justify-self: start;
-          width: 100%;
-          gap: 6px;
-        }
-        .actions .btn,
-        .actions a.btn {
-          flex: 1 1 auto;
-          justify-content: center;
-        }
-        .stats {
-          display: flex !important;
-          flex-direction: column !important;
-          gap: 12px !important;
-        }
-        .container {
-          padding-bottom: 0;
-        }
-        main.container {
-          padding-bottom: 0;
-        }
-        main.container > *:last-child {
-          margin-bottom: 0;
-        }
-        .col-left > article,
-        .col-right > article {
-          margin: 0;
-          width: 100%;
-        }
-        footer {
-          margin-top: 0 !important;
-        }
-        /* Ensure grid and main container collapse bottom margin/padding so footer sits directly below last card */
-        .grid {
-          margin-bottom: 0 !important;
-          padding-bottom: 0 !important;
-        }
-        main.container {
-          padding-bottom: 0 !important;
-          margin-bottom: 0 !important;
-        }
-        .col-right > article:last-child {
-          margin-bottom: 0;
-        }
-        footer.container {
-          padding-top: 0;
-          margin-top: 0;
-          margin-bottom: 0;
-        }
-      }
-      @media (max-width: 420px) {
-        .logo {
-          width: 36px;
-          height: 36px;
-        }
-        .chip {
-          font-size: 10px;
-          padding: 5px 8px;
-        }
-        .btn {
-          padding: 8px 10px;
-        }
-        .whatsapp-float {
-          width: 52px;
-          height: 52px;
-          font-size: 22px;
-        }
-      }
-
-      /* ============ MOTION PREFERENCES ============ */
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          animation: none !important;
-          transition: none !important;
-          scroll-behavior: auto !important;
-        }
-      }
-
-      /* ============ PRINT FOR PDF ============ */
-      @media print {
-        header.site,
-        .whatsapp-float,
-        #themeBtn,
-        #printBtn {
-          display: none !important;
-        }
-        body {
-          background: white;
-        }
-        .card {
-          break-inside: avoid;
-          box-shadow: none;
-        }
-        a[href^="http"]::after {
-          content: " (" attr(href) ")";
-          font-size: 10px;
-          color: #666;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="site">
-      <nav class="nav container" aria-label="Barra de navegación">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <h1>Ezra Tawachi</h1>
-            <small>Operaciones Tech | Comercio</small>
+    <main>
+      <section class="">
+        <h2>Experiencia</h2>
+        <article class="puesto">
+          <div class="puesto-top">
+            <h3>Encargado de Amazon FBA</h3>
+            <span class="cuando">2025 – presente</span>
           </div>
-        </div>
-        <div class="actions">
-          <button class="btn" id="themeBtn" aria-label="Cambiar tema">
-            🌗 Tema
-          </button>
-          <button class="btn primary" id="printBtn" aria-label="Descargar PDF">
-            ⬇️ Descargar PDF
-          </button>
-          <a
-            class="btn"
-            id="whatsappBtn"
-            href="https://wa.me/50764931573"
-            target="_blank"
-            rel="noopener"
-            >💬 WhatsApp</a
-          >
-        </div>
-      </nav>
-    </header>
-
-    <main class="container">
-      <!-- HERO -->
-      <section class="hero">
-        <div>
-          <h2 class="title">
-            Hola, soy
-            <span style="color: var(--accent)">Ezra Tawachi</span> — me enfoco
-            en aplicar tecnología de forma práctica para que las operaciones
-            sean más claras, ordenadas y eficientes.
-          </h2>
-          <p class="subtitle">
-            Foco en retail y distribución: inventarios, pedidos, reportería e
-            integraciones ligeras en la nube.
-            <br />En mi tiempo libre creo
-            <a
-              href="https://www.etsy.com/shop/sheetsbrewery/"
-              target="_blank"
-              rel="noopener"
-              >plantillas de Google Sheets en Etsy</a
-            >
-            (automatizaciones y dashboards).
-          </p>
-          <div class="tags" aria-label="Etiquetas">
-            <span class="chip">Automatización (Apps Script / Zapier)</span>
-            <span class="chip">ERP · SAP (exposición)</span>
-            <span class="chip">SQL básico</span>
-            <span class="chip">HTML • CSS • JS</span>
-            <span class="chip">Google Workspace Avanzado</span>
-            <span class="chip">Gestión de Inventario</span>
-            <span class="chip">Distribución Mayorista</span>
-            <span class="chip">Ciberseguridad (bases)</span>
-            <span class="chip">Etsy · Productos Digitales</span>
-            <span class="chip">Herramientas AI</span>
-            <span class="chip">Excel / Sheets Avanzado</span>
-            <span class="chip">Terminal & Git</span>
+          <div class="empresa">Distribuidora Osher</div>
+          <p class="alcance">Llevo la operación diaria de Amazon del negocio: listings, publicidad, inventario, reportería y cargas masivas, preparando análisis y ejecuciones para aprobación.</p>
+          <ul>
+            <li>Creo y optimizo listings y ASINs: investigación de palabras clave con Helium 10 y revisión de desempeño para ajustar contenido y campañas.</li>
+            <li>Analizo campañas PPC y preparo ajustes de keywords, tipos de concordancia y negativas según conversión y costo.</li>
+            <li>Pasé la creación y actualización de productos, anuncios e imágenes a procesos bulk, y escribí un script en terminal que renombra lotes de imágenes con el formato que exige Amazon.</li>
+            <li>Automaticé reportería a partir de feed files usando herramientas de IA y flujos propios.</li>
+            <li>Gestioné trámites administrativos en Estados Unidos para la operación: registro de marca y renovaciones corporativas.</li>
+          </ul>
+        </article>
+        <article class="puesto">
+          <div class="puesto-top">
+            <h3>Fundador</h3>
+            <span class="cuando">Abr 2025 – 2026</span>
           </div>
-          <div class="stats" aria-label="Indicadores">
-            <div class="stat" role="figure" aria-label="Experiencia">
-              <h3>3+ Años</h3>
-              <p>aplicando tecnología al negocio</p>
-            </div>
-            <div class="stat" role="figure" aria-label="Flujos">
-              <h3>10+ Flujos</h3>
-              <p>automatizados y documentados</p>
-            </div>
-            <div class="stat" role="figure" aria-label="Sectores">
-              <h3>4 Sectores</h3>
-              <p>retail · farmacia · distribución · ecommerce</p>
-            </div>
+          <div class="empresa">Sheets Brewery · Tienda en Etsy</div>
+          <p class="alcance">Tienda propia de productos digitales para Google Sheets, desde el desarrollo y la venta hasta la atención al cliente y la administración.</p>
+          <ul>
+            <li>Creé un Team Task Tracker en Google Sheets con Apps Script: integración con Google Calendar, correos automáticos, Kanban, Pomodoro y soporte multilenguaje.</li>
+            <li>Iteré el producto a partir de las reseñas y los pedidos de los clientes.</li>
+            <li>Alcancé <strong>410 ventas</strong> y una calificación de <strong>4.8 sobre 5</strong> en 33 reseñas.</li>
+            <li>Constituí Sheets Brewery LLC en Estados Unidos, abrí la cuenta bancaria y gestioné los reportes anuales y el cumplimiento.</li>
+          </ul>
+        </article>
+        <article class="puesto">
+          <div class="puesto-top">
+            <h3>Implementación de SAP y Operaciones</h3>
+            <span class="cuando">Mar – Sep 2024</span>
           </div>
-        </div>
-        <div class="card" id="contacto" aria-labelledby="contacto-titulo">
-          <div class="content">
-            <h2 id="contacto-titulo">Contacto</h2>
-            <p class="muted">Panamá · Disponible</p>
-            <div class="pill-group">
-              <span class="chip">Remoto</span>
-              <span class="chip">Híbrido</span>
-              <span class="chip">Presencial</span>
-            </div>
-            <div class="info-links">
-              <a href="mailto:ezrawachi@gmail.com"
-                ><span class="icon">📧</span> ezrawachi@gmail.com</a
-              >
-              <a href="tel:+50764931573"
-                ><span class="icon">📱</span> +507 64931573</a
-              >
-              <a
-                href="https://www.linkedin.com/in/ezra-tawachi-494ab01ab/"
-                target="_blank"
-                rel="noopener"
-                ><span class="icon">💼</span> LinkedIn</a
-              >
-              <a
-                href="https://www.etsy.com/shop/sheetsbrewery/"
-                target="_blank"
-                rel="noopener"
-                ><span class="icon">🛒</span> Etsy: Sheets Brewery</a
-              >
-              <a href="#" id="copyLink"
-                ><span class="icon">🗎</span> Copiar enlace del CV</a
-              >
-              <a href="https://wa.me/50764931573" target="_blank" rel="noopener"
-                ><span class="icon">💬</span> Contactar por WhatsApp</a
-              >
-            </div>
+          <div class="empresa">Farma 507</div>
+          <p class="alcance">Parte del equipo de la implementación de SAP, con trabajo operativo en inventario, reportería y órdenes de compra.</p>
+          <ul>
+            <li>Me formé en SAP con el equipo, probé los procesos antes de la salida en vivo y estuve en el go-live.</li>
+            <li>Escribí reportes SQL personalizados para consultas de inventario y operación.</li>
+            <li>Armé flujos en Sheets para convertir datos al formato de carga masiva de SAP, de productos y de órdenes.</li>
+            <li>Automaticé la preparación de órdenes de compra con OCR: PDF → CSV → Google Sheets → formato listo para cargar en SAP.</li>
+            <li>Creé herramientas rápidas para problemas operativos: un buscador de precios en Sheets y un control visual para priorizar despachos.</li>
+          </ul>
+        </article>
+        <article class="puesto">
+          <div class="puesto-top">
+            <h3>Encargado de Bodega y Operaciones</h3>
+            <span class="cuando">Nov 2021 – Dic 2023</span>
           </div>
-        </div>
+          <div class="empresa">Distribuidora Osher</div>
+          <p class="alcance">Pasé por bodega, despacho mayorista y operación del canal online, con supervisión de equipo y atención directa a clientes.</p>
+          <ul>
+            <li>Supervisé a 3 personas y me encargué de apertura y cierre de bodega, revisión de pedidos, conteo de bultos y carga a camiones.</li>
+            <li>Creé un verificador de empaque con OCR y Apps Script, además de controles de inventario con alertas de mínimos para apoyar el proceso de compras.</li>
+            <li>Automaticé las notificaciones de estado de pedido por WhatsApp y el flujo de reembolsos con Zapier y Sheets.</li>
+            <li>Atendí clientes del canal online con seguimiento directo por WhatsApp, y mantuve el sitio web.</li>
+          </ul>
+        </article>
       </section>
 
-      <!-- GRID SECTION -->
-      <section class="grid">
-        <div class="col-left">
-          <!-- Experiencia -->
-          <article class="card" aria-labelledby="exp-title">
-            <h2 id="exp-title">Experiencia</h2>
-            <div class="timeline">
-              <div class="tl-item">
-                <h3>Empresa familiar · Retail/Distribución</h3>
-                <small>Noviembre 2021 – Diciembre 2023 · Panamá</small>
-                <ul>
-                  <li>
-                    Pasé procesos manuales a digitales (pedidos, inventario,
-                    cobros) para reducir errores y ahorrar tiempo.
-                  </li>
-                  <li>
-                    Implementé inventario en tiempo real con mínimos y alertas
-                    para hacer pedido a la bodega de Zona Libre.
-                  </li>
-                  <li>
-                    Creé un sistema de estados con stickers por WhatsApp
-                    (“pedido completo / parcial”), enviado cada día a las 2 pm,
-                    que redujo la percepción de entregas incompletas y
-                    fortaleció la confianza de los clientes.
-                  </li>
-                  <li>
-                    Asumí un rol integral en la operación de BH Super,
-                    coordinando áreas de atención al cliente, verificación de
-                    pagos y despachos, supervisión de personal, gestión de
-                    proveedores tecnológicos y marketing digital (Instagram).
-                    Además, fui responsable de la parte técnica de la web
-                    (soporte, membresías, plugins y trabajo con programadores
-                    externos).
-                  </li>
-                </ul>
-              </div>
-              <div class="tl-item">
-                <h3>Farma 507 · Implementación SAP</h3>
-                <small>2023 – 2024 · Panamá</small>
-                <ul>
-                  <li>
-                    Participación en reuniones de implementación de SAP con Top
-                    Manage.
-                  </li>
-                  <li>
-                    Apoyo al departamento de compras: ingreso de órdenes de
-                    compra y creación de flujos internos para que las diferentes
-                    sucursales puedan solicitar a la encargada de compras.
-                  </li>
-                  <li>
-                    Reportes básicos en SQL para visibilidad de notas de crédito
-                    y operaciones clave.
-                  </li>
-                  <li>
-                    Carga masiva de productos y flujo OCR para subir órdenes de
-                    compra en minutos.
-                  </li>
-                </ul>
-              </div>
-              <div class="tl-item">
-                <h3>Empresa familiar · Retorno (Operación y automatización)</h3>
-                <small>2025 – Presente · Panamá</small>
-                <ul>
-                  <li>
-                    Retorno tras cierre de la farmacia para continuar en la
-                    empresa familiar.
-                  </li>
-                  <li>
-                    Creé un sistema de catálogo 1‑click en Google Sheets
-                    conectado a una base de datos de imágenes en Google Drive:
-                    con un botón se generaban catálogos en PDF (grid) o Excel
-                    clásico con fotos y precios seleccionados.
-                  </li>
-                  <li>
-                    Encargado de bodega y despachos (abrir/cerrar, revisión de
-                    pedidos, carga y descarga de camiones), además de apoyo
-                    administrativo en reembolsos, atención al cliente en casos
-                    específicos, soporte a la web y solución de incidencias de
-                    sistema.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </article>
-          <!-- Habilidades -->
-          <article class="card" aria-labelledby="habilidades-title">
-            <h2 id="habilidades-title">Habilidades</h2>
-            <div class="skill">
-              <b>Automatización (Apps Script / Zapier)<span>85%</span></b>
-              <div class="bar" data-pct="85"><span></span></div>
-            </div>
-            <div class="skill">
-              <b>Google Workspace (Sheets/Docs/Drive)<span>90%</span></b>
-              <div class="bar" data-pct="90"><span></span></div>
-            </div>
-            <div class="skill">
-              <b>Excel Avanzado<span>80%</span></b>
-              <div class="bar" data-pct="80"><span></span></div>
-            </div>
-            <div class="skill">
-              <b>Herramientas AI (ChatGPT + Custom GPT's)<span>70%</span></b>
-              <div class="bar" data-pct="70"><span></span></div>
-            </div>
-            <div class="skill">
-              <b>HTML • CSS • JavaScript<span>80%</span></b>
-              <div class="bar" data-pct="80"><span></span></div>
-            </div>
-            <div class="skill">
-              <b>ERP (exposición SAP)<span>70%</span></b>
-              <div class="bar" data-pct="70"><span></span></div>
-            </div>
-            <div class="skill">
-              <b>SQL (reportería básica)<span>55%</span></b>
-              <div class="bar" data-pct="55"><span></span></div>
-            </div>
-            <div class="skill">
-              <b>Uso de Terminal (Git básico)<span>65%</span></b>
-              <div class="bar" data-pct="65"><span></span></div>
-            </div>
-            <div class="skill">
-              <b>Fundamentos de Ciberseguridad<span>40%</span></b>
-              <div class="bar" data-pct="40"><span></span></div>
-            </div>
-          </article>
-          <!-- Educación -->
-          <article class="card" aria-labelledby="formacion-title">
-            <h2 id="formacion-title">Formación</h2>
-            <ul>
-              <li>
-                Web Design for Everybody (Specialization) – University of
-                Michigan (2020)
-              </li>
-              <li>Introduction to HTML5 – University of Michigan (2020)</li>
-              <li>Introduction to CSS3 – University of Michigan (2020)</li>
-              <li>
-                Interactivity with JavaScript – University of Michigan (2020)
-              </li>
-              <li>
-                Advanced Styling with Responsive Design – University of Michigan
-                (2020)
-              </li>
-              <li>
-                Building Web Applications in PHP – University of Michigan (2020)
-              </li>
-              <li>
-                Introduction to Structured Query Language (SQL) – University of
-                Michigan (2020)
-              </li>
-              <li>Introducción a Java – UNAM (2020) – 30 horas</li>
-              <li>Introduction to DevOps – IBM (2024)</li>
-              <li>Foundations of Cybersecurity – Google (2025)</li>
-              <li>Play It Safe: Manage Security Risks – Google (2025)</li>
-            </ul>
-            <h2 style="margin-top: 14px">Idiomas</h2>
-            <ul>
-              <li>Español (nativo)</li>
-              <li>Inglés (intermedio/avanzado)</li>
-              <li>Hebreo (intermedio/avanzado)</li>
-            </ul>
-          </article>
-          <!-- Contacto rápido / Disponibilidad -->
-          <article class="card" aria-labelledby="disp-title">
-            <h2 id="disp-title">Disponibilidad</h2>
-            <ul>
-              <li>Inicio: Inmediato</li>
-              <li>Modalidad: Remoto, Híbrido o Presencial</li>
-            </ul>
-          </article>
-        </div>
-        <div class="col-right">
-          <!-- Logros -->
-          <article class="card" aria-labelledby="logros-title">
-            <h2 id="logros-title">Logros Destacados</h2>
-            <ul>
-              <li>
-                <strong>Reducción de reclamos por entregas incompletas</strong>,
-                gracias a controles y comunicación proactiva.
-              </li>
-              <li>
-                <strong>Estados diarios automatizados por WhatsApp</strong>, que
-                fortalecieron la confianza y la trazabilidad.
-              </li>
-              <li>
-                <strong
-                  >Conciliación eficiente de cobros (ACH/transferencias)</strong
-                >
-                integrada con los estados de pedido.
-              </li>
-              <li>
-                <strong
-                  >Sistema de inventario completo con entradas, salidas y
-                  alertas de stock mínimo</strong
-                >, reemplazando procesos manuales temporales.
-              </li>
-              <li>
-                <strong>Carga masiva y OCR para órdenes y productos</strong>,
-                acelerando procesos de registro y reduciendo errores.
-              </li>
-            </ul>
-          </article>
-          <!-- Proyectos -->
-          <article class="card" aria-labelledby="proyectos-title">
-            <h2 id="proyectos-title">Proyectos</h2>
-            <div class="proj">
-              <div class="card" style="padding: 16px">
-                <h3>Inventario en la nube</h3>
-                <p class="muted">
-                  Inventario con mínimos, alertas y pedidos automáticos.
-                  Interfaz en Sheets, automatización con Apps Script.
-                </p>
-                <div>
-                  <span class="pill">Sheets</span>
-                  <span class="pill">Apps Script</span>
-                  <span class="pill">QR</span>
-                </div>
-              </div>
-              <div class="card" style="padding: 16px">
-                <h3>Sistema de distribución a locales</h3>
-                <p class="muted">
-                  Sistema en Sheets + Apps Script para las 4 farmacias:
-                  verificación de mercancía recibida (check de pendientes) y
-                  flujo de pedidos cíclicos solicitados para cada tienda.
-                </p>
-                <div>
-                  <span class="pill">Sheets</span>
-                  <span class="pill">Apps Script</span>
-                  <span class="pill">Automatización</span>
-                </div>
-              </div>
-              <div class="card" style="padding: 16px">
-                <h3>Pedidos + Estados por WhatsApp</h3>
-                <p class="muted">
-                  Flujo de estados y notificaciones para clientes, con registro
-                  interno para trazabilidad.
-                </p>
-                <div>
-                  <span class="pill">Zapier</span>
-                  <span class="pill">Web</span>
-                  <span class="pill">WhatsApp</span>
-                </div>
-              </div>
-              <div class="card" style="padding: 16px">
-                <h3>Catálogo 1-click para mayoristas</h3>
-                <p class="muted">
-                  Generación automática de catálogos personalizados (PDF/Excel)
-                  con fotos y precios por cliente.
-                </p>
-                <div>
-                  <span class="pill">Sheets</span>
-                  <span class="pill">Apps Script</span>
-                  <span class="pill">PDF</span>
-                </div>
-              </div>
-              <div class="card" style="padding: 16px">
-                <h3>Productos digitales (Etsy)</h3>
-                <p class="muted">
-                  Plantillas avanzadas de Google Sheets con automatizaciones
-                  para tareas, clientes e inventarios.
-                </p>
-                <div>
-                  <span class="pill">Sheets</span>
-                  <span class="pill">Apps Script</span>
-                </div>
-              </div>
-            </div>
-          </article>
-          <!-- Sobre mí -->
-          <article class="card" aria-labelledby="sobre-mi-title">
-            <h2 id="sobre-mi-title">Sobre mí</h2>
-            <p>
-              Soy una persona práctica. Me gusta resolver problemas con
-              tecnología que la empresa pueda usar de inmediato. Disfruto
-              aprender rápido, documentar lo que hago y trabajar con equipos de
-              ventas, compras y bodega para que todo fluya. Me interesa aportar
-              en un rol de Gerencia IT u Operaciones Tech, ayudando a ordenar
-              procesos, automatizar flujos y construir tableros con datos claros
-              para decidir mejor.
-            </p>
-          </article>
-          <!-- Gracias -->
-          <article
-            class="card"
-            aria-labelledby="gracias-title"
-            style="
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-            "
-          >
-            <h2 id="gracias-title">Gracias</h2>
-            <p class="muted">Gracias por visitar mi portafolio.</p>
-          </article>
-        </div>
+      <section class="">
+        <h2>Formación</h2>
+        <ul class="lista">
+            <li>Python <span class="donde">— en curso, 2026</span></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/7MT859OZQ4ZL">Fundamentos de Ciberseguridad</a> y <a href="https://www.coursera.org/account/accomplishments/verify/DCTFDIX5TKEP">Gestión de Riesgos</a> <span class="donde">— Google, 2025</span></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/SRUUWY3J3MVL">Introduction to DevOps</a> <span class="donde">— IBM, 2024</span></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/specialization/4EYF7XZH27SH">Especialización en Desarrollo Web</a> (HTML, CSS, JS) · <a href="https://www.coursera.org/account/accomplishments/records/T5YFG4VYHR7L">PHP</a> · <a href="https://www.coursera.org/account/accomplishments/records/YHCLNLURUXU3">SQL</a> <span class="donde">— University of Michigan, 2020</span></li>
+        </ul>
+        <p class="nota">Cada certificado enlaza a su verificación en Coursera.</p>
       </section>
 
-      <footer class="container" role="contentinfo">
-        <p>
-          © <span id="year"></span> Ezra Tawachi. Hecho con HTML + CSS + JS.
-        </p>
-      </footer>
     </main>
 
-    <!-- Botón flotante de WhatsApp -->
-    <a
-      class="whatsapp-float"
-      href="https://wa.me/50764931573"
-      target="_blank"
-      rel="noopener"
-      aria-label="Contactar por WhatsApp"
-      >💬</a
-    >
-    <!-- Botón scroll-to-top -->
-    <button id="scrollTopBtn" aria-label="Subir arriba">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="20"
-        height="20"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <polyline points="18 15 12 9 6 15"></polyline>
-      </svg>
-    </button>
+    <aside class="lateral">
 
-    <script>
-      // Utilidades
-      const $ = (s, ctx = document) => ctx.querySelector(s);
-      const $$ = (s, ctx = document) => Array.from(ctx.querySelectorAll(s));
+      <div class="caja">
+        <h2>Contacto</h2>
+          <div class="dato"><span class="et">Teléfono</span><span class="val">+507 6493-1573</span></div>
+          <div class="dato"><span class="et">Email</span><span class="val">ezratawachi@gmail.com</span></div>
+          <div class="dato"><span class="et">Ubicación</span><span class="val">Panamá</span></div>
+          <div class="dato"><span class="et">Modalidad</span><span class="val">Presencial, híbrido o remoto</span></div>
+      </div>
 
-      // Tema claro/oscuro con persistencia
-      const themeBtn = $("#themeBtn");
-      const root = document.documentElement;
-      function setTheme(mode) {
-        if (mode === "light") {
-          root.classList.add("light");
-          localStorage.setItem("theme", "light");
-        } else {
-          root.classList.remove("light");
-          localStorage.setItem("theme", "dark");
-        }
-      }
-      setTheme(localStorage.getItem("theme") || "dark");
-      themeBtn?.addEventListener("click", () => {
-        const isLight = root.classList.toggle("light");
-        localStorage.setItem("theme", isLight ? "light" : "dark");
-      });
+      <div class="caja">
+        <h2>Habilidades</h2>
+          <div class="grupo"><strong>Automatización y productividad</strong><span>Google Apps Script · Zapier · Google Sheets avanzado · Google Workspace · OCR</span></div>
+          <div class="grupo"><strong>Datos y ERP</strong><span>SQL · SAP · Reportería · Cargas masivas · Inventario</span></div>
+          <div class="grupo"><strong>E-commerce</strong><span>Amazon Seller Central (FBA) · Helium 10 · PPC · SEO de listings · Etsy</span></div>
+          <div class="grupo"><strong>IA aplicada</strong><span>ChatGPT · Claude · Codex — scripting, automatización, análisis y creación de herramientas</span></div>
+          <div class="grupo"><strong>Desarrollo</strong><span>Python (en formación) · Terminal</span></div>
+      </div>
 
-      // Descargar/Imprimir PDF
-      $("#printBtn")?.addEventListener("click", () => {
-        const printWindow = window.open("", "_blank");
-        printWindow.document.write(`
-          <html>
-            <head>
-              <title>CV - Ezra Tawachi</title>
-              <style>
-                body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #222; background: #fff; padding: 40px; line-height: 1.6; }
-                h1 { font-size: 30px; margin-bottom: 4px; }
-                h2 { font-size: 18px; margin-top: 28px; border-bottom: 2px solid #0ea5a5; padding-bottom: 4px; color: #0ea5a5; }
-                h3 { font-size: 15px; margin-bottom: 4px; }
-                p, li { font-size: 13px; }
-                ul { margin: 6px 0 14px 20px; }
-                .header { text-align: center; margin-bottom: 24px; }
-                .contact { font-size: 13px; color: #555; }
-                .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-                .section { margin-bottom: 20px; }
-              </style>
-            </head>
-            <body>
-              <div class="header">
-                <h1>Ezra Tawachi</h1>
-                <div class="contact">Panamá · ezrawachi@gmail.com · +507 64931573 · LinkedIn</div>
-              </div>
-              <div class="section">
-                <h2>Perfil</h2>
-                <p>Me enfoco en aplicar tecnología práctica para optimizar operaciones, con experiencia en retail, distribución y automatización de procesos.</p>
-              </div>
-              <div class="two-col">
-                <div>
-                  <div class="section">
-                    <h2>Experiencia</h2>
-                    <h3>Empresa familiar · Retail/Distribución</h3>
-                    <p><small>Noviembre 2021 – Diciembre 2023 · Panamá</small></p>
-                    <ul>
-                      <li>Pasé procesos manuales a digitales (pedidos, inventario, cobros) para reducir errores y ahorrar tiempo.</li>
-                      <li>Implementé inventario en tiempo real con mínimos y alertas para hacer pedido a la bodega de Zona Libre.</li>
-                      <li>Creé un sistema de estados con stickers por WhatsApp (“pedido completo / parcial”), enviado cada día a las 2 pm, que redujo la percepción de entregas incompletas y fortaleció la confianza de los clientes.</li>
-                      <li>Rol integral en operación: atención al cliente, pagos, despachos, supervisión de personal, gestión tecnológica y marketing digital.</li>
-                    </ul>
-                    <h3>Farma 507 · Implementación SAP</h3>
-                    <p><small>2023 – 2024 · Panamá</small></p>
-                    <ul>
-                      <li>Participación en reuniones de implementación de SAP con Top Manage.</li>
-                      <li>Apoyo al departamento de compras: ingreso de órdenes de compra y flujos internos para sucursales.</li>
-                      <li>Reportes básicos en SQL para visibilidad de operaciones clave.</li>
-                      <li>Carga masiva de productos y flujo OCR para subir órdenes de compra en minutos.</li>
-                    </ul>
-                    <h3>Empresa familiar · Retorno (Operación y automatización)</h3>
-                    <p><small>2025 – Presente · Panamá</small></p>
-                    <ul>
-                      <li>Retorno tras cierre de farmacia para continuar en empresa familiar.</li>
-                      <li>Catálogo 1‑click en Google Sheets conectado a imágenes en Drive: genera catálogos PDF o Excel con fotos y precios seleccionados.</li>
-                      <li>Encargado de bodega y despachos, apoyo administrativo y solución de incidencias técnicas.</li>
-                    </ul>
-                  </div>
-                  <div class="section">
-                    <h2>Educación</h2>
-                    <ul>
-                      <li>University of Michigan – Web Design for Everybody (2020)</li>
-                      <li>IBM – Introduction to DevOps (2024)</li>
-                      <li>Google – Foundations of Cybersecurity (2025)</li>
-                    </ul>
-                  </div>
-                </div>
-                <div>
-                  <div class="section">
-                    <h2>Habilidades</h2>
-                    <ul>
-                      <li>Automatización (Apps Script / Zapier) – Avanzado</li>
-                      <li>Google Workspace Avanzado</li>
-                      <li>Excel Avanzado</li>
-                      <li>HTML • CSS • JS</li>
-                    </ul>
-                  </div>
-                  <div class="section">
-                    <h2>Logros</h2>
-                    <ul>
-                      <li>Reducción de reclamos por entregas incompletas</li>
-                      <li>Estados diarios automatizados por WhatsApp</li>
-                      <li>Conciliación eficiente de cobros integrada con estados de pedido</li>
-                      <li>Sistema de inventario completo con alertas de stock mínimo</li>
-                      <li>Carga masiva y OCR para órdenes y productos</li>
-                    </ul>
-                  </div>
-                  <div class="section">
-                    <h2>Idiomas</h2>
-                    <ul>
-                      <li>Español (nativo)</li>
-                      <li>Inglés (intermedio/avanzado)</li>
-                      <li>Hebreo (intermedio/avanzado)</li>
-                    </ul>
-                  </div>
-                  <div class="section">
-                    <h2>Proyectos</h2>
-                    <ul>
-                      <li>Inventario en la nube: mínimos, alertas y pedidos automáticos (Sheets + Apps Script)</li>
-                      <li>Sistema de distribución a locales: verificación de mercancía y pedidos cíclicos (Sheets + Apps Script)</li>
-                      <li>Pedidos + Estados por WhatsApp: notificaciones y trazabilidad (Zapier, WhatsApp)</li>
-                      <li>Catálogo 1-click para mayoristas: generación automática de catálogos personalizados (Sheets + Apps Script + PDF)</li>
-                      <li>Productos digitales (Etsy): plantillas avanzadas de Google Sheets con automatizaciones</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="section">
-                <h2>Sobre mí</h2>
-                <p>Soy una persona práctica. Me gusta resolver problemas con tecnología que la empresa pueda usar de inmediato. Disfruto aprender rápido, documentar lo que hago y trabajar con equipos de ventas, compras y bodega para que todo fluya. Me interesa aportar en un rol de Gerencia IT u Operaciones Tech, ayudando a ordenar procesos, automatizar flujos y construir tableros con datos claros para decidir mejor.</p>
-              </div>
-            </body>
-          </html>
-        `);
-        printWindow.document.close();
-        printWindow.focus();
-        printWindow.print();
-      });
+      <div class="caja">
+        <h2>Idiomas</h2>
+          <div class="idioma"><b>Español</b><span>Nativo</span></div>
+          <div class="idioma"><b>Inglés</b><span>Avanzado</span></div>
+          <div class="idioma"><b>Hebreo</b><span>Avanzado</span></div>
+      </div>
 
-      // Copiar enlace del CV
-      $("#copyLink")?.addEventListener("click", (e) => {
-        e.preventDefault();
-        const url = "https://ezra6785.github.io/ezratawachi.github.io/";
-        navigator.clipboard
-          .writeText(url)
-          .then(() => {
-            // Notificación elegante
-            const msg = document.createElement("div");
-            msg.textContent = "✔ Enlace de tu CV copiado";
-            msg.style.position = "fixed";
-            msg.style.bottom = "20px";
-            msg.style.right = "20px";
-            msg.style.background =
-              "linear-gradient(135deg, var(--accent), var(--accent-2))";
-            msg.style.color = "white";
-            msg.style.padding = "10px 16px";
-            msg.style.borderRadius = "8px";
-            msg.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
-            msg.style.zIndex = "1000";
-            document.body.appendChild(msg);
-            setTimeout(() => msg.remove(), 2500);
-          })
-          .catch(() => alert("No se pudo copiar el enlace."));
-      });
+      <div class="caja">
+        <h2>Estudios en yeshivá</h2>
+        <ul class="lista">
+            <li>Beit Matitiyahu <span class="donde">— Rab Baruch Vaisbiker z”l · Bnei Brak, Israel · 2018 – 2020</span></li>
+            <li>Ohel Torá <span class="donde">— Rab Yaakov Harari · Lakewood, Nueva Jersey · 2020 – 2021</span></li>
+            <li>Yeshiva Gedola of Elkins Park <span class="donde">— Rab Yehoshua Rubanowitz · Tannersville, Nueva York · Abr – Nov 2021</span></li>
+        </ul>
+      </div>
 
-      // Animación de barras de skill al entrar en viewport
-      const obs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const bar = entry.target;
-              const pct = bar.dataset.pct || 0;
-              const fill = bar.querySelector("span");
-              if (fill) fill.style.width = pct + "%";
-              obs.unobserve(bar);
-            }
-          });
-        },
-        { threshold: 0.35 }
-      );
-      $$(".bar").forEach((b) => obs.observe(b));
+      <div class="caja ref">
+        <h2>Referencia</h2>
+        <strong>Yalik Suárez</strong>
+        <span>Supervisora indirecta · Encargada de Compras, Farma 507<br>+507 6947-7030</span>
+      </div>
 
-      // Año actual
-      $("#year").textContent = new Date().getFullYear();
+    </aside>
+  </div>
 
-      // Ajuste seguro para iOS (altura viewport)
-      const setVH = () => {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-      };
-      setVH();
-      window.addEventListener("resize", setVH);
-    </script>
-    <script>
-      // Scroll-to-top button logic
-      const scrollBtn = document.getElementById("scrollTopBtn");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          scrollBtn.style.display = "flex";
-        } else {
-          scrollBtn.style.display = "none";
-        }
-      });
-      scrollBtn?.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    </script>
-    <!-- Typed.js animación en héroe -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-      new Typed(".typed-hero", {
-        strings: ["Operaciones, Automatización y Retail Tech"],
-        typeSpeed: 60,
-        showCursor: false,
-        loop: false,
-      });
-    </script>
-  </body>
+  <footer>
+    Ezra Tawachi · Panamá · <a href="mailto:ezratawachi@gmail.com">ezratawachi@gmail.com</a>
+    · <a href="CV-Ezra-Tawachi.pdf">Descargar CV</a>
+  </footer>
+
+</div>
+</body>
 </html>
