@@ -27,7 +27,9 @@
   .franja i:last-child{flex:0 0 22%;background:var(--terracota)}
   .hoja{max-width:1020px;margin:0 auto;padding:0 22px 64px}
 
-  header.cabecera{padding:52px 0 30px;border-bottom:2px solid var(--petroleo)}
+  header.cabecera{padding:52px 0 30px;border-bottom:2px solid var(--petroleo);position:relative}
+  .bh{position:absolute;top:16px;right:0;font-family:var(--serif);font-size:.6rem;
+      letter-spacing:.1em;color:var(--suave);opacity:.5}
   h1{font-family:var(--serif);font-size:clamp(2.3rem,6.5vw,3.3rem);line-height:1;letter-spacing:-.02em}
   .regla{width:46px;height:4px;background:var(--terracota);margin:16px 0 14px}
   .titular{font-size:.9rem;font-weight:600;text-transform:uppercase;
@@ -101,6 +103,7 @@
 <div class="hoja">
 
   <header class="cabecera">
+    <div class="bh">BH</div>
     <h1>Ezra Tawachi</h1>
     <div class="regla"></div>
     <div class="titular">Operaciones y Automatización · SAP y E-commerce</div>
