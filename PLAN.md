@@ -1,10 +1,10 @@
 # Plan: rediseño de la hoja de vida web
 
-**Fase actual:** Fase 1 · Contenido
-**Siguiente paso:** en una sesión nueva, aplicar los 5 cambios de la Fase 1 en `index.html` y mostrarle el diff a Ezra.
+**Fase actual:** Fase 2 · Diseño
+**Siguiente paso:** en una sesión nueva, armar en Claude Design las 3 direcciones de diseño (computadora y celular) con el contenido de la Fase 1, y mostrárselas a Ezra para que elija.
 
 - [x] Fase 0 · Preparación
-- [ ] Fase 1 · Contenido
+- [x] Fase 1 · Contenido
 - [ ] Fase 2 · Diseño
 - [ ] Fase 3 · Videos e imágenes de los proyectos
 - [ ] Fase 4 · PDF
@@ -22,7 +22,7 @@ Ninguna fase avanza sin el "dale" de Ezra. Una sesión = una fase.
 4. Crear este `PLAN.md`. ✔
 5. Mostrarle a Ezra `CLAUDE.md` y `PLAN.md` → esperar su "dale". ✔
 
-## Fase 1 · Contenido (ya aprobado en Cowork)
+## Fase 1 · Contenido ✔ (hecha el 2026-10-20)
 
 Aplicar exactamente estos cambios en `index.html`:
 
@@ -40,7 +40,7 @@ Aplicar exactamente estos cambios en `index.html`:
 
 Lo demás se queda igual: experiencia, formación, idiomas, yeshivá, referencia (con teléfono) y el título "Operaciones y Automatización · SAP y E-commerce".
 
-Mostrar el diff → esperar el "dale".
+Mostrar el diff → esperar el "dale". ✔
 
 ## Fase 2 · Diseño (cambió, ver "Cambios al plan")
 
@@ -99,6 +99,7 @@ Con la Fase 5 termina este proyecto. Cómo mantener la hoja de vida actualizada 
 - 2026-10-20 · Etiqueta "Disponible · Panamá": sí, solo en la web, no en el PDF.
 - 2026-10-20 · `noindex`: sí. Google no muestra la página; solo la ve quien tenga el enlace.
 - 2026-10-20 · Sunling = proyecto en `~/Developer/savers`.
+- 2026-10-20 · Fase 1: en Proyectos, el estado (En pausa / En curso / Claude Code) va a la derecha y el tipo (App iPhone / Rediseño web / Sitio web) debajo del nombre. Por ahora usa el estilo de Experiencia; las tarjetas se hacen en la Fase 2.
 - 2026-10-20 · Había una copia vieja del repo en `~/Developer/ezratawachi.github.io`. Ezra la borró. Solo se trabaja en `~/Proyectos/hoja-de-vida`.
 
 ## Cambios al plan
