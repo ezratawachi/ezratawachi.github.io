@@ -1,7 +1,8 @@
 # Plan: rediseño de la hoja de vida web
 
-**Fase actual:** Fase 2 · Diseño
-**Siguiente paso:** en una sesión nueva, armar en Claude Design las 3 direcciones de diseño (computadora y celular) con el contenido de la Fase 1, y mostrárselas a Ezra para que elija.
+**Estado:** ⏸ EN PAUSA desde el 2026-10-20 (lo pidió Ezra).
+**Fase actual:** Fase 2 · Diseño (pasos 1 y 2 hechos).
+**Siguiente paso al retomar:** abrir el lienzo, confirmar con Ezra que sigue queriendo la C compacta, y pasarla a `index.html` (Fase 2, paso 3).
 
 - [x] Fase 0 · Preparación
 - [x] Fase 1 · Contenido
@@ -43,6 +44,9 @@ Lo demás se queda igual: experiencia, formación, idiomas, yeshivá, referencia
 Mostrar el diff → esperar el "dale". ✔
 
 ## Fase 2 · Diseño (cambió, ver "Cambios al plan")
+
+> Avance (2026-10-20): pasos 1 y 2 hechos. Lienzo en Claude Design (privado): https://claude.ai/artifact/5i3QZj4fc89QxeA85G3JDv
+> Tiene A · Grilla, B · Bento y C · Editorial. Ezra eligió **C · Editorial, versión compacta**. Falta el paso 3 en adelante.
 
 1. En Claude Design (lienzo de diseño en claude.ai, armado desde Claude Code), hacer **3 direcciones bien distintas**, cada una en computadora y en celular, con el contenido real de la Fase 1.
    - Todo puede cambiar: colores, fuentes, estructura.
@@ -101,6 +105,9 @@ Con la Fase 5 termina este proyecto. Cómo mantener la hoja de vida actualizada 
 - 2026-10-20 · Sunling = proyecto en `~/Developer/savers`.
 - 2026-10-20 · Fase 1: en Proyectos, el estado (En pausa / En curso / Claude Code) va a la derecha y el tipo (App iPhone / Rediseño web / Sitio web) debajo del nombre. Por ahora usa el estilo de Experiencia; las tarjetas se hacen en la Fase 2.
 - 2026-10-20 · Había una copia vieja del repo en `~/Developer/ezratawachi.github.io`. Ezra la borró. Solo se trabaja en `~/Proyectos/hoja-de-vida`.
+
+- 2026-10-20 · Fase 2: Ezra eligió la dirección **C · Editorial compacta**: letra con serifa (Instrument Serif + Instrument Sans), verde bosque con acento ocre, franja de dos colores arriba, nombre grande con "Tawachi" en cursiva, cita grande sacada de "Sobre mí", proyectos en 3 tarjetas lado a lado, experiencia con fechas a la izquierda y línea de tiempo.
+- 2026-10-20 · Proyecto en pausa por pedido de Ezra, después de elegir la dirección.
 
 ## Cambios al plan
 
