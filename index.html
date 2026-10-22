@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://ezratawachi.github.io/">
 <meta property="og:title" content="Ezra Tawachi">
 <meta property="og:description" content="Hoja de vida · Panamá">
-<meta property="og:image" content="https://ezratawachi.github.io/og.png">
+<meta property="og:image" content="https://ezratawachi.github.io/og.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ezra Tawachi">
@@ -25,17 +25,25 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ezra Tawachi">
 <meta name="twitter:description" content="Hoja de vida · Panamá">
-<meta name="twitter:image" content="https://ezratawachi.github.io/og.png">
+<meta name="twitter:image" content="https://ezratawachi.github.io/og.png?v=2">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
+<link rel="preload" href="fuentes/archivo-roman-800-125.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* Archivo en versiones fijas (licencia OFL en fuentes/): así el PDF también la incrusta bien */
+  @font-face{font-family:"ArchivoF";font-weight:400;font-display:swap;src:url(fuentes/archivo-roman-400-100.woff2) format("woff2")}
+  @font-face{font-family:"ArchivoF";font-weight:500;font-display:swap;src:url(fuentes/archivo-roman-500-100.woff2) format("woff2")}
+  @font-face{font-family:"ArchivoF";font-weight:600;font-display:swap;src:url(fuentes/archivo-roman-600-100.woff2) format("woff2")}
+  @font-face{font-family:"ArchivoF";font-weight:650;font-display:swap;src:url(fuentes/archivo-roman-650-100.woff2) format("woff2")}
+  @font-face{font-family:"ArchivoF";font-weight:700;font-display:swap;src:url(fuentes/archivo-roman-700-100.woff2) format("woff2")}
+  @font-face{font-family:"ArchivoF";font-weight:400;font-style:italic;font-display:swap;src:url(fuentes/archivo-italic-400-100.woff2) format("woff2")}
+  @font-face{font-family:"Archivo106";font-weight:700;font-display:swap;src:url(fuentes/archivo-roman-700-106.woff2) format("woff2")}
+  @font-face{font-family:"Archivo112";font-weight:700;font-display:swap;src:url(fuentes/archivo-roman-700-112.woff2) format("woff2")}
+  @font-face{font-family:"Archivo125";font-weight:800;font-display:swap;src:url(fuentes/archivo-roman-800-125.woff2) format("woff2")}
   :root{
     --fondo:#fbfcfc; --tinta:#14232a; --petroleo:#0e4a55; --suave:#56676e;
     --linea:#d9e0e2; --leve:#eef3f3;
     --banda:#0e4a55; --banda-tinta:#f4f9f9; --banda-suave:#a9cdd2;
-    --letra:"Archivo","Avenir Next","Segoe UI",system-ui,sans-serif;
+    --letra:"ArchivoF","Avenir Next","Segoe UI",system-ui,sans-serif;
     --margen:10.5rem;
   }
   @media (prefers-color-scheme:dark){
@@ -57,10 +65,10 @@
   header.cabecera{max-width:1000px;margin:0 auto;padding:72px 32px 46px;position:relative}
   .bh{position:absolute;top:22px;right:32px;font-size:.62rem;font-weight:600;
       letter-spacing:.08em;color:var(--banda-suave);opacity:.7}
-  h1{font-size:clamp(2.2rem,9vw,5.2rem);font-weight:800;font-stretch:125%;
+  h1{font-size:clamp(2.2rem,9vw,5.2rem);font-weight:800;font-family:"Archivo125",var(--letra);
      line-height:.95;letter-spacing:-.025em}
   .titular{margin-top:18px;font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:500;
-           font-stretch:100%;line-height:1.35}
+           line-height:1.35}
   .junto{white-space:nowrap}
   .contacto{display:flex;flex-wrap:wrap;align-items:end;gap:18px 34px;margin-top:34px}
   .dato{display:flex;flex-direction:column}
@@ -71,14 +79,16 @@
        text-decoration:none}
   .btn:hover{background:var(--banda-suave)}
   .banda :focus-visible{outline-color:var(--banda-tinta)}
-  .hoja > main > .bloque:first-child{border-top:0;padding-top:40px}
+  /* iOS convierte teléfonos y correos en enlaces: en la banda heredan el color claro */
+  .banda .contacto a.val{color:inherit;text-decoration:none}
+  .principal > .bloque:first-child{border-top:0;padding-top:40px}
 
   /* Cada sección: título en el margen izquierdo, contenido en el eje */
   .bloque{display:grid;grid-template-columns:var(--margen) minmax(0,1fr);gap:0 2.5rem;
           border-top:1px solid var(--linea);padding:30px 0 34px}
   .bloque > *{grid-column:2}
   .bloque > h2{grid-column:1;grid-row:1 / span 20}
-  h2{font-size:1rem;font-weight:700;font-stretch:112%;color:var(--petroleo);line-height:1.4}
+  h2{font-size:1rem;font-weight:700;font-family:"Archivo112",var(--letra);color:var(--petroleo);line-height:1.4}
 
   .sobre p{max-width:64ch;margin-bottom:12px}
   .sobre p:last-child{margin-bottom:0}
@@ -99,7 +109,7 @@
                  border:2px solid var(--petroleo);background:var(--fondo)}
   .puesto:first-of-type::after{background:var(--petroleo)}
   .cuando{font-size:.9rem;font-weight:500;color:var(--suave);padding-top:.2em;line-height:1.4}
-  .puesto h3{font-size:1.2rem;font-weight:700;font-stretch:106%;line-height:1.25}
+  .puesto h3{font-size:1.2rem;font-weight:700;font-family:"Archivo106",var(--letra);line-height:1.25}
   .empresa{color:var(--petroleo);font-weight:600;font-size:.98rem;margin-top:2px}
   .alcance{font-style:italic;color:var(--suave);font-size:.95rem;margin-top:8px;max-width:66ch}
   .puesto ul{list-style:none;margin-top:12px;max-width:66ch}
@@ -138,6 +148,68 @@
     .cuando{padding-top:0;margin-bottom:2px;font-size:.85rem}
     .puesto{padding-left:24px;--eje:6px;--centro:10px}
   }
+
+  /* Impresión: el mismo contenido armado en una hoja carta, con el anexo como columna
+     lateral. generar-pdf.sh imprime esta vista en CV-Ezra-Tawachi.pdf */
+  @media print{
+    @page{size:letter;margin:0}
+    :root{--fondo:#fff; --tinta:#14232a; --petroleo:#0e4a55; --suave:#56676e;
+          --linea:#d9e0e2; --leve:#eef3f3;
+          --banda:#0e4a55; --banda-tinta:#f4f9f9; --banda-suave:#a9cdd2}
+    html,body{width:8.5in;height:11in}
+    body{font-size:8pt;line-height:1.32;display:flex;flex-direction:column;
+         -webkit-print-color-adjust:exact;print-color-adjust:exact}
+    a{text-decoration-thickness:.5pt;text-underline-offset:.15em}
+
+    header.cabecera{max-width:none;padding:.3in .5in .22in}
+    .bh{top:.2in;right:.5in;font-size:5.5pt;opacity:.75}
+    h1{font-size:28pt}
+    .titular{margin-top:6pt;font-size:10.5pt}
+    .contacto{gap:26pt;margin-top:11pt}
+    .et{font-size:6.8pt}
+    .val{font-size:8.6pt}
+
+    .hoja{max-width:none;margin:0;padding:0;flex:1;display:flex}
+    main{flex:1;display:grid;grid-template-columns:2.05in 1fr}
+    .anexo{grid-column:1;grid-row:1;background:var(--leve);padding:.18in .24in .2in .5in}
+    .principal{grid-column:2;padding:.16in .5in .16in .28in}
+    .bloque{display:block;border:0;padding:0}
+    .bloque + .bloque{margin-top:8pt}
+    .principal > .experiencia{margin-top:0;padding-top:0}
+    h2,.experiencia > h2{font-size:9.6pt;margin-bottom:6pt}
+
+    .puesto{display:grid;grid-template-columns:1fr auto;gap:0;margin:0;
+            padding:0 0 5pt 14pt;--centro:6.6pt}
+    .puesto:last-child{padding-bottom:0}
+    .puesto > div{grid-column:1 / -1;grid-row:1}
+    .cuando{grid-column:2;grid-row:1;padding-top:1.3pt;font-size:7.9pt;white-space:nowrap}
+    .puesto::before{left:3pt;width:1.1pt;bottom:calc(-1 * var(--centro))}
+    .puesto::after{left:0;top:calc(var(--centro) - 3.6pt);width:7.2pt;height:7.2pt;border-width:1.3pt}
+    .puesto h3{font-size:10pt}
+    .empresa{font-size:8.4pt;margin-top:0}
+    .alcance{font-size:inherit;margin-top:2pt;max-width:none}
+    .puesto ul{margin-top:3.5pt;max-width:none}
+    .puesto li{padding-left:9pt;margin-bottom:1.2pt;font-size:inherit}
+    .puesto li::before{top:.66em;width:5pt;height:.8pt}
+
+    .lista{max-width:none}
+    .lista li{margin-bottom:4.5pt;font-size:inherit}
+    .anexo .lista{font-size:7.9pt}
+    .grupos{display:block}
+    .grupo{margin-bottom:6pt}
+    .grupo:last-child{margin-bottom:0}
+    .grupo strong{font-size:8.4pt;margin-bottom:0}
+    .grupo span{font-size:7.9pt}
+    .idiomas{display:block}
+    .idioma{display:flex;justify-content:space-between;padding:2.5pt 0;border-bottom:.5pt solid var(--linea)}
+    .idioma:last-child{border-bottom:0}
+    .idioma b{display:inline}
+    .idioma span{font-size:inherit}
+    .ref strong{font-size:inherit}
+    .ref span{font-size:7.9pt}
+    /* Al final para ganarle a .bloque{display:block} */
+    .btn,.sobre,.nota,footer{display:none}
+  }
 </style>
 </head>
 <body>
@@ -148,7 +220,7 @@
     <h1>Ezra Tawachi</h1>
     <p class="titular">Operaciones y Automatización · <span class="junto">SAP y E-commerce</span></p>
     <div class="contacto">
-      <div class="dato"><span class="et">Teléfono</span><span class="val">+507 6493-1573</span></div>
+      <div class="dato"><span class="et">Teléfono</span><a class="val" href="tel:+50764931573">+507 6493-1573</a></div>
       <div class="dato"><span class="et">Email</span><span class="val">ezratawachi@gmail.com</span></div>
       <div class="dato"><span class="et">Ubicación</span><span class="val">Panamá</span></div>
       <div class="dato"><span class="et">Modalidad</span><span class="val">Presencial, híbrido o remoto</span></div>
@@ -160,6 +232,7 @@
 <div class="hoja">
 
   <main>
+    <div class="principal">
     <section class="bloque sobre">
       <h2>Sobre mí</h2>
       <p>Me caracterizo por combinar una mentalidad práctica con interés por la tecnología
@@ -243,6 +316,9 @@
       <p class="nota">Cada certificado enlaza a su verificación en Coursera.</p>
     </section>
 
+    </div>
+
+    <div class="anexo">
     <section class="bloque">
       <h2>Habilidades</h2>
       <div class="grupos">
@@ -279,6 +355,7 @@
         <span>Supervisora indirecta · Encargada de Compras, Farma 507<br>+507 6947-7030</span>
       </div>
     </section>
+    </div>
   </main>
 
   <footer>
