@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ezra Tawachi — Operaciones y Automatización</title>
 <meta name="description" content="Operaciones y Automatización · SAP y E-commerce. Panamá.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0e4a55" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#123f48" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 
@@ -23,132 +26,156 @@
 <meta name="twitter:title" content="Ezra Tawachi">
 <meta name="twitter:description" content="Hoja de vida · Panamá">
 <meta name="twitter:image" content="https://ezratawachi.github.io/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
 <style>
   :root{
-    --tinta:#1a2530; --petroleo:#0e4a55; --terracota:#b45a30; --suave:#5d6b76;
-    --papel:#f4f1e9; --fondo:#fffdfa; --linea:#ded8cc;
-    --serif:"Charter","Bitstream Charter","Iowan Old Style",Georgia,serif;
-    --sans:"Avenir Next",Avenir,"Segoe UI",system-ui,-apple-system,sans-serif;
+    --fondo:#fbfcfc; --tinta:#14232a; --petroleo:#0e4a55; --suave:#56676e;
+    --linea:#d9e0e2; --leve:#eef3f3;
+    --banda:#0e4a55; --banda-tinta:#f4f9f9; --banda-suave:#a9cdd2;
+    --letra:"Archivo","Avenir Next","Segoe UI",system-ui,sans-serif;
+    --margen:10.5rem;
   }
   @media (prefers-color-scheme:dark){
-    :root{ --tinta:#e9e5dd; --petroleo:#78b8c4; --terracota:#e2925f; --suave:#a0abb4;
-            --papel:#1b232a; --fondo:#131920; --linea:#2c3740; }
+    :root{ --fondo:#0f1a1e; --tinta:#e4ecee; --petroleo:#7cc3cf; --suave:#9aaeb4;
+           --linea:#26363c; --leve:#16252a;
+           --banda:#123f48; --banda-tinta:#eef6f7; --banda-suave:#9cc6cc; }
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:var(--sans);background:var(--fondo);color:var(--tinta);
-       font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  a{color:var(--petroleo)}
-  .franja{height:6px;display:flex}
-  .franja i{height:100%}
-  .franja i:first-child{flex:1;background:var(--petroleo)}
-  .franja i:last-child{flex:0 0 22%;background:var(--terracota)}
-  .hoja{max-width:1020px;margin:0 auto;padding:0 22px 64px}
+  body{font-family:var(--letra);background:var(--fondo);color:var(--tinta);
+       font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;
+       font-variant-numeric:tabular-nums}
+  a{color:var(--petroleo);text-underline-offset:.18em;text-decoration-thickness:1px}
+  a:hover{text-decoration-thickness:2px}
+  :focus-visible{outline:2px solid var(--petroleo);outline-offset:3px;border-radius:2px}
+  .hoja{max-width:1000px;margin:0 auto;padding:0 32px 64px}
 
-  header.cabecera{padding:52px 0 30px;border-bottom:2px solid var(--petroleo);position:relative}
-  .bh{position:absolute;top:16px;right:0;font-family:var(--serif);font-size:.6rem;
-      letter-spacing:.1em;color:var(--suave);opacity:.5}
-  h1{font-family:var(--serif);font-size:clamp(2.3rem,6.5vw,3.3rem);line-height:1;letter-spacing:-.02em}
-  .regla{width:46px;height:4px;background:var(--terracota);margin:16px 0 14px}
-  .titular{font-size:.9rem;font-weight:600;text-transform:uppercase;
-           letter-spacing:.06em;color:var(--petroleo)}
-  .btn{display:inline-block;margin-top:22px;padding:11px 22px;border-radius:3px;
-       background:var(--petroleo);color:var(--fondo);font-size:.9rem;font-weight:600;
+  /* Cabecera: banda petróleo de borde a borde, el único gesto fuerte de la página */
+  .banda{background:var(--banda);color:var(--banda-tinta)}
+  header.cabecera{max-width:1000px;margin:0 auto;padding:72px 32px 46px;position:relative}
+  .bh{position:absolute;top:22px;right:32px;font-size:.62rem;font-weight:600;
+      letter-spacing:.08em;color:var(--banda-suave);opacity:.7}
+  h1{font-size:clamp(2.2rem,9vw,5.2rem);font-weight:800;font-stretch:125%;
+     line-height:.95;letter-spacing:-.025em}
+  .titular{margin-top:18px;font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:500;
+           font-stretch:100%;line-height:1.35}
+  .junto{white-space:nowrap}
+  .contacto{display:flex;flex-wrap:wrap;align-items:end;gap:18px 34px;margin-top:34px}
+  .dato{display:flex;flex-direction:column}
+  .et{font-size:.78rem;color:var(--banda-suave)}
+  .val{font-size:.95rem;font-weight:500;word-break:break-word}
+  .btn{margin-left:auto;display:inline-block;padding:11px 20px;border-radius:4px;
+       background:var(--banda-tinta);color:var(--banda);font-size:.92rem;font-weight:650;
        text-decoration:none}
-  .btn:hover{opacity:.87}
+  .btn:hover{background:var(--banda-suave)}
+  .banda :focus-visible{outline-color:var(--banda-tinta)}
+  .hoja > main > .bloque:first-child{border-top:0;padding-top:40px}
 
-  .cuerpo{display:grid;gap:36px;padding-top:30px}
-  @media(min-width:860px){
-    .cuerpo{grid-template-columns:1fr 292px;gap:46px;align-items:start}
-    .lateral{position:sticky;top:24px}
-  }
+  /* Cada sección: título en el margen izquierdo, contenido en el eje */
+  .bloque{display:grid;grid-template-columns:var(--margen) minmax(0,1fr);gap:0 2.5rem;
+          border-top:1px solid var(--linea);padding:30px 0 34px}
+  .bloque > *{grid-column:2}
+  .bloque > h2{grid-column:1;grid-row:1 / span 20}
+  h2{font-size:1rem;font-weight:700;font-stretch:112%;color:var(--petroleo);line-height:1.4}
 
-  section{margin-bottom:34px}
-  section:last-child{margin-bottom:0}
-  h2{font-family:var(--serif);font-size:.86rem;font-weight:700;text-transform:uppercase;
-     letter-spacing:.1em;color:var(--petroleo);margin-bottom:16px}
-  h2::before{content:"";display:block;width:22px;height:3px;background:var(--terracota);margin-bottom:9px}
-
-  .sobre p{font-size:1rem;color:var(--suave);margin-bottom:12px;max-width:64ch}
+  .sobre p{max-width:64ch;margin-bottom:12px}
   .sobre p:last-child{margin-bottom:0}
-  .puesto{margin-bottom:26px}
+
+  /* Experiencia: el margen pasa a ser la línea de tiempo */
+  .experiencia > h2{grid-column:1 / -1;grid-row:auto;margin-bottom:22px}
+  .puesto{grid-column:1 / -1;display:grid;grid-template-columns:var(--margen) minmax(0,1fr);
+          gap:0 2.5rem;margin-bottom:34px}
   .puesto:last-child{margin-bottom:0}
-  .puesto-top{display:flex;flex-wrap:wrap;justify-content:space-between;
-              align-items:baseline;gap:6px}
-  .puesto h3{font-family:var(--serif);font-size:1.14rem;font-weight:700;line-height:1.25}
-  .cuando{font-size:.76rem;color:var(--suave);text-transform:uppercase;letter-spacing:.05em;
-          white-space:nowrap}
-  .empresa{color:var(--petroleo);font-weight:600;font-size:.95rem;margin-top:1px}
-  .alcance{font-style:italic;color:var(--suave);font-size:.93rem;margin-top:6px}
-  .puesto ul{list-style:none;margin-top:10px}
-  .puesto li{position:relative;padding-left:16px;margin-bottom:6px;font-size:.96rem}
-  .puesto li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:2px;
-                     background:var(--terracota);opacity:.8}
+  /* Línea de tiempo: une los puestos; el punto lleno marca el puesto actual */
+  .puesto{position:relative;--eje:calc(var(--margen) + 1.25rem);--centro:12px}
+  .puesto::before{content:"";position:absolute;left:calc(var(--eje) - 1px);width:2px;
+                  top:var(--centro);bottom:calc(-34px - var(--centro));
+                  background:color-mix(in srgb,var(--petroleo) 45%,transparent)}
+  .puesto:last-child::before{display:none}
+  .puesto::after{content:"";position:absolute;left:calc(var(--eje) - 6px);top:calc(var(--centro) - 6px);
+                 width:12px;height:12px;border-radius:50%;box-sizing:border-box;
+                 border:2px solid var(--petroleo);background:var(--fondo)}
+  .puesto:first-of-type::after{background:var(--petroleo)}
+  .cuando{font-size:.9rem;font-weight:500;color:var(--suave);padding-top:.2em;line-height:1.4}
+  .puesto h3{font-size:1.2rem;font-weight:700;font-stretch:106%;line-height:1.25}
+  .empresa{color:var(--petroleo);font-weight:600;font-size:.98rem;margin-top:2px}
+  .alcance{font-style:italic;color:var(--suave);font-size:.95rem;margin-top:8px;max-width:66ch}
+  .puesto ul{list-style:none;margin-top:12px;max-width:66ch}
+  .puesto li{position:relative;padding-left:18px;margin-bottom:7px;font-size:.97rem}
+  .puesto li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:1.5px;
+                     background:var(--petroleo)}
+  .puesto strong{font-weight:700;color:var(--petroleo)}
 
-  .lista{list-style:none}
-  .lista li{position:relative;padding-left:15px;margin-bottom:8px;font-size:.94rem}
-  .lista li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;
-                    border-radius:50%;background:var(--petroleo)}
+  .lista{list-style:none;max-width:66ch}
+  .lista li{margin-bottom:9px;font-size:.97rem}
+  .lista li:last-child{margin-bottom:0}
   .lista .donde{color:var(--suave)}
+  .nota{margin-top:14px;font-size:.84rem;color:var(--suave)}
 
-  .caja{background:var(--papel);border-radius:5px;padding:20px 20px 22px}
-  .caja + .caja{margin-top:18px}
-  .caja h2{margin-bottom:14px}
-  .dato{margin-bottom:11px}
-  .dato:last-child{margin-bottom:0}
-  .et{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;
-      color:var(--terracota);margin-bottom:1px}
-  .val{font-size:.93rem;word-break:break-word}
-  .grupo{margin-bottom:14px}
-  .grupo:last-child{margin-bottom:0}
-  .grupo strong{display:block;font-family:var(--serif);font-size:.95rem;margin-bottom:2px}
-  .grupo span{font-size:.88rem;color:var(--suave)}
-  .idioma{display:flex;justify-content:space-between;gap:10px;padding:5px 0;
-          border-bottom:1px solid var(--linea);font-size:.93rem}
-  .idioma:last-child{border-bottom:0}
-  .idioma b{font-weight:600}
-  .idioma span{color:var(--suave);font-size:.87rem}
-  .ref strong{display:block;font-size:1rem;font-family:var(--serif)}
-  .ref span{font-size:.9rem;color:var(--suave)}
-  .nota{margin-top:12px;font-size:.82rem;color:var(--suave)}
+  .grupos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px 34px}
+  .grupo strong{display:block;font-size:.97rem;font-weight:650;margin-bottom:2px}
+  .grupo span{font-size:.92rem;color:var(--suave)}
 
-  footer{border-top:1px solid var(--linea);margin-top:46px;padding-top:24px;
-         font-size:.87rem;color:var(--suave)}
+  .idiomas{display:flex;flex-wrap:wrap;gap:10px 44px}
+  .idioma b{display:block;font-weight:650}
+  .idioma span{color:var(--suave);font-size:.92rem}
+
+  .ref strong{display:block;font-size:1.02rem;font-weight:650}
+  .ref span{font-size:.95rem;color:var(--suave)}
+
+  footer{border-top:1px solid var(--linea);padding-top:24px;font-size:.87rem;color:var(--suave)}
+
+  @media (max-width:720px){
+    .hoja{padding:0 16px 48px}
+    header.cabecera{padding:56px 16px 38px}
+    .bh{right:16px}
+    .btn{margin-left:0}
+    .bloque,.puesto{grid-template-columns:minmax(0,1fr)}
+    .bloque > *,.bloque > h2,.puesto > *{grid-column:1;grid-row:auto}
+    .bloque > h2{margin-bottom:14px}
+    .cuando{padding-top:0;margin-bottom:2px;font-size:.85rem}
+    .puesto{padding-left:24px;--eje:6px;--centro:10px}
+  }
 </style>
 </head>
 <body>
 
-<div class="franja"><i></i><i></i></div>
-
-<div class="hoja">
-
+<div class="banda">
   <header class="cabecera">
     <div class="bh">BH</div>
     <h1>Ezra Tawachi</h1>
-    <div class="regla"></div>
-    <div class="titular">Operaciones y Automatización · SAP y E-commerce</div>
-    <a class="btn" href="CV-Ezra-Tawachi.pdf">Descargar CV en PDF</a>
+    <p class="titular">Operaciones y Automatización · <span class="junto">SAP y E-commerce</span></p>
+    <div class="contacto">
+      <div class="dato"><span class="et">Teléfono</span><span class="val">+507 6493-1573</span></div>
+      <div class="dato"><span class="et">Email</span><span class="val">ezratawachi@gmail.com</span></div>
+      <div class="dato"><span class="et">Ubicación</span><span class="val">Panamá</span></div>
+      <div class="dato"><span class="et">Modalidad</span><span class="val">Presencial, híbrido o remoto</span></div>
+      <a class="btn" href="CV-Ezra-Tawachi.pdf">Descargar CV en PDF</a>
+    </div>
   </header>
+</div>
 
-  <div class="cuerpo">
+<div class="hoja">
 
-    <main>
-      <section class="sobre">
-        <h2>Sobre mí</h2>
-        <p>Me caracterizo por combinar una mentalidad práctica con interés por la tecnología
-          y la mejora de procesos. Me gusta involucrarme, entender cómo funciona una operación
-          y encontrar maneras de hacerla más eficiente, ya sea mediante automatización, nuevas
-          herramientas o una mejor forma de trabajar.</p>
-        <p>Aprendo rápido, disfruto asumir nuevos retos y valoro especialmente los roles donde
-          puedo aportar ideas, construir soluciones y seguir desarrollándome profesionalmente.</p>
-      </section>
+  <main>
+    <section class="bloque sobre">
+      <h2>Sobre mí</h2>
+      <p>Me caracterizo por combinar una mentalidad práctica con interés por la tecnología
+        y la mejora de procesos. Me gusta involucrarme, entender cómo funciona una operación
+        y encontrar maneras de hacerla más eficiente, ya sea mediante automatización, nuevas
+        herramientas o una mejor forma de trabajar.</p>
+      <p>Aprendo rápido, disfruto asumir nuevos retos y valoro especialmente los roles donde
+        puedo aportar ideas, construir soluciones y seguir desarrollándome profesionalmente.</p>
+    </section>
 
-      <section class="">
-        <h2>Experiencia</h2>
-        <article class="puesto">
-          <div class="puesto-top">
-            <h3>Encargado de Amazon FBA</h3>
-            <span class="cuando">2025 – presente</span>
-          </div>
+    <section class="bloque experiencia">
+      <h2>Experiencia</h2>
+      <article class="puesto">
+        <span class="cuando">2025 – presente</span>
+        <div>
+          <h3>Encargado de Amazon FBA</h3>
           <div class="empresa">Distribuidora Osher</div>
           <p class="alcance">Operación diaria de Amazon del negocio: listings, publicidad, inventario, reportería y cargas masivas, preparando análisis y ejecuciones para aprobación.</p>
           <ul>
@@ -158,12 +185,12 @@
             <li>Automaticé reportería a partir de flat files usando herramientas de IA y flujos propios.</li>
             <li>Gestioné trámites administrativos en Estados Unidos para la operación: registro de marca y renovaciones corporativas.</li>
           </ul>
-        </article>
-        <article class="puesto">
-          <div class="puesto-top">
-            <h3>Fundador</h3>
-            <span class="cuando">Abr 2025 – 2026</span>
-          </div>
+        </div>
+      </article>
+      <article class="puesto">
+        <span class="cuando">Abr 2025 – 2026</span>
+        <div>
+          <h3>Fundador</h3>
           <div class="empresa">Sheets Brewery · Tienda en Etsy</div>
           <p class="alcance">Tienda propia de productos digitales para Google Sheets, desde el desarrollo y la venta hasta la atención al cliente y la administración.</p>
           <ul>
@@ -172,12 +199,12 @@
             <li>Alcancé <strong>410 ventas</strong> y una calificación de <strong>4.8 sobre 5</strong> en 33 reseñas.</li>
             <li>Constituí Sheets Brewery LLC en Estados Unidos, abrí la cuenta bancaria y gestioné los reportes anuales y el cumplimiento.</li>
           </ul>
-        </article>
-        <article class="puesto">
-          <div class="puesto-top">
-            <h3>Implementación de SAP y Operaciones</h3>
-            <span class="cuando">Mar – Sep 2024</span>
-          </div>
+        </div>
+      </article>
+      <article class="puesto">
+        <span class="cuando">Mar – Sep 2024</span>
+        <div>
+          <h3>Implementación de SAP y Operaciones</h3>
           <div class="empresa">Farma 507</div>
           <p class="alcance">Parte del equipo de la implementación de SAP, con trabajo operativo en inventario, reportería y órdenes de compra.</p>
           <ul>
@@ -187,12 +214,12 @@
             <li>Automaticé la preparación de órdenes de compra con OCR: PDF → CSV → Google Sheets → formato listo para cargar en SAP.</li>
             <li>Creé herramientas rápidas para problemas operativos: un buscador de precios en Sheets y un control visual para priorizar despachos.</li>
           </ul>
-        </article>
-        <article class="puesto">
-          <div class="puesto-top">
-            <h3>Encargado de Bodega y Operaciones</h3>
-            <span class="cuando">Nov 2021 – Dic 2023</span>
-          </div>
+        </div>
+      </article>
+      <article class="puesto">
+        <span class="cuando">Nov 2021 – Dic 2023</span>
+        <div>
+          <h3>Encargado de Bodega y Operaciones</h3>
           <div class="empresa">Distribuidora Osher</div>
           <p class="alcance">Bodega, despacho mayorista y operación del canal online, con supervisión de equipo y atención directa a clientes.</p>
           <ul>
@@ -201,65 +228,58 @@
             <li>Automaticé las notificaciones de estado de pedido por WhatsApp y el flujo de reembolsos con Zapier y Sheets.</li>
             <li>Atendí clientes del canal online con seguimiento directo por WhatsApp, y mantuve el sitio web.</li>
           </ul>
-        </article>
-      </section>
+        </div>
+      </article>
+    </section>
 
-      <section class="">
-        <h2>Formación</h2>
-        <ul class="lista">
-            <li>Python <span class="donde">— en curso, 2026</span></li>
-            <li><a href="https://www.coursera.org/account/accomplishments/verify/7MT859OZQ4ZL">Fundamentos de Ciberseguridad</a> y <a href="https://www.coursera.org/account/accomplishments/verify/DCTFDIX5TKEP">Gestión de Riesgos</a> <span class="donde">— Google, 2025</span></li>
-            <li><a href="https://www.coursera.org/account/accomplishments/verify/SRUUWY3J3MVL">Introduction to DevOps</a> <span class="donde">— IBM, 2024</span></li>
-            <li><a href="https://www.coursera.org/account/accomplishments/specialization/4EYF7XZH27SH">Especialización en Desarrollo Web</a> (HTML, CSS, JS) · <a href="https://www.coursera.org/account/accomplishments/records/T5YFG4VYHR7L">PHP</a> · <a href="https://www.coursera.org/account/accomplishments/records/YHCLNLURUXU3">SQL</a> <span class="donde">— University of Michigan, 2020</span></li>
-        </ul>
-        <p class="nota">Cada certificado enlaza a su verificación en Coursera.</p>
-      </section>
+    <section class="bloque">
+      <h2>Formación</h2>
+      <ul class="lista">
+          <li>Python <span class="donde">— en curso, 2026</span></li>
+          <li><a href="https://www.coursera.org/account/accomplishments/verify/7MT859OZQ4ZL">Fundamentos de Ciberseguridad</a> y <a href="https://www.coursera.org/account/accomplishments/verify/DCTFDIX5TKEP">Gestión de Riesgos</a> <span class="donde">— Google, 2025</span></li>
+          <li><a href="https://www.coursera.org/account/accomplishments/verify/SRUUWY3J3MVL">Introduction to DevOps</a> <span class="donde">— IBM, 2024</span></li>
+          <li><a href="https://www.coursera.org/account/accomplishments/specialization/4EYF7XZH27SH">Especialización en Desarrollo Web</a> (HTML, CSS, JS) · <a href="https://www.coursera.org/account/accomplishments/records/T5YFG4VYHR7L">PHP</a> · <a href="https://www.coursera.org/account/accomplishments/records/YHCLNLURUXU3">SQL</a> <span class="donde">— University of Michigan, 2020</span></li>
+      </ul>
+      <p class="nota">Cada certificado enlaza a su verificación en Coursera.</p>
+    </section>
 
-    </main>
-
-    <aside class="lateral">
-
-      <div class="caja">
-        <h2>Contacto</h2>
-          <div class="dato"><span class="et">Teléfono</span><span class="val">+507 6493-1573</span></div>
-          <div class="dato"><span class="et">Email</span><span class="val">ezratawachi@gmail.com</span></div>
-          <div class="dato"><span class="et">Ubicación</span><span class="val">Panamá</span></div>
-          <div class="dato"><span class="et">Modalidad</span><span class="val">Presencial, híbrido o remoto</span></div>
+    <section class="bloque">
+      <h2>Habilidades</h2>
+      <div class="grupos">
+        <div class="grupo"><strong>Automatización y productividad</strong><span>Google Apps Script · Zapier · Google Sheets avanzado · Google Workspace · OCR</span></div>
+        <div class="grupo"><strong>Datos y ERP</strong><span>SQL · SAP · Reportería · Cargas masivas · Inventario</span></div>
+        <div class="grupo"><strong>E-commerce</strong><span>Amazon Seller Central (FBA) · Helium 10 · PPC · SEO de listings · Etsy</span></div>
+        <div class="grupo"><strong>IA aplicada</strong><span>ChatGPT · Claude · Codex — scripting, automatización, análisis y creación de herramientas</span></div>
+        <div class="grupo"><strong>Desarrollo</strong><span>Python (en formación) · Terminal</span></div>
       </div>
+    </section>
 
-      <div class="caja">
-        <h2>Habilidades</h2>
-          <div class="grupo"><strong>Automatización y productividad</strong><span>Google Apps Script · Zapier · Google Sheets avanzado · Google Workspace · OCR</span></div>
-          <div class="grupo"><strong>Datos y ERP</strong><span>SQL · SAP · Reportería · Cargas masivas · Inventario</span></div>
-          <div class="grupo"><strong>E-commerce</strong><span>Amazon Seller Central (FBA) · Helium 10 · PPC · SEO de listings · Etsy</span></div>
-          <div class="grupo"><strong>IA aplicada</strong><span>ChatGPT · Claude · Codex — scripting, automatización, análisis y creación de herramientas</span></div>
-          <div class="grupo"><strong>Desarrollo</strong><span>Python (en formación) · Terminal</span></div>
+    <section class="bloque">
+      <h2>Idiomas</h2>
+      <div class="idiomas">
+        <div class="idioma"><b>Español</b><span>Nativo</span></div>
+        <div class="idioma"><b>Inglés</b><span>Avanzado</span></div>
+        <div class="idioma"><b>Hebreo</b><span>Avanzado</span></div>
       </div>
+    </section>
 
-      <div class="caja">
-        <h2>Idiomas</h2>
-          <div class="idioma"><b>Español</b><span>Nativo</span></div>
-          <div class="idioma"><b>Inglés</b><span>Avanzado</span></div>
-          <div class="idioma"><b>Hebreo</b><span>Avanzado</span></div>
-      </div>
+    <section class="bloque">
+      <h2>Estudios en yeshivá</h2>
+      <ul class="lista">
+          <li>Beit Matitiyahu <span class="donde">— Rab Baruch Vaisbiker z”l · Bnei Brak, Israel · 2018 – 2020</span></li>
+          <li>Ohel Torá <span class="donde">— Rab Yaakov Harari · Lakewood, Nueva Jersey · 2020 – 2021</span></li>
+          <li>Yeshiva Gedola of Elkins Park <span class="donde">— Rab Yehoshua Rubanowitz · Tannersville, Nueva York · Abr – Nov 2021</span></li>
+      </ul>
+    </section>
 
-      <div class="caja">
-        <h2>Estudios en yeshivá</h2>
-        <ul class="lista">
-            <li>Beit Matitiyahu <span class="donde">— Rab Baruch Vaisbiker z”l · Bnei Brak, Israel · 2018 – 2020</span></li>
-            <li>Ohel Torá <span class="donde">— Rab Yaakov Harari · Lakewood, Nueva Jersey · 2020 – 2021</span></li>
-            <li>Yeshiva Gedola of Elkins Park <span class="donde">— Rab Yehoshua Rubanowitz · Tannersville, Nueva York · Abr – Nov 2021</span></li>
-        </ul>
-      </div>
-
-      <div class="caja ref">
-        <h2>Referencia</h2>
+    <section class="bloque ref">
+      <h2>Referencia</h2>
+      <div>
         <strong>Yalik Suárez</strong>
         <span>Supervisora indirecta · Encargada de Compras, Farma 507<br>+507 6947-7030</span>
       </div>
-
-    </aside>
-  </div>
+    </section>
+  </main>
 
   <footer>
     Ezra Tawachi · Panamá · <a href="mailto:ezratawachi@gmail.com">ezratawachi@gmail.com</a>
