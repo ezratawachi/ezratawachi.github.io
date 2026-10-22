@@ -157,29 +157,30 @@
           --linea:#d9e0e2; --leve:#eef3f3;
           --banda:#0e4a55; --banda-tinta:#f4f9f9; --banda-suave:#a9cdd2}
     html,body{width:8.5in;height:11in}
-    body{font-size:8pt;line-height:1.32;display:flex;flex-direction:column;
+    body{font-size:8pt;line-height:1.31;display:flex;flex-direction:column;
          -webkit-print-color-adjust:exact;print-color-adjust:exact}
     a{text-decoration-thickness:.5pt;text-underline-offset:.15em}
 
-    header.cabecera{max-width:none;padding:.3in .5in .22in}
-    .bh{top:.2in;right:.5in;font-size:5.5pt;opacity:.75}
-    h1{font-size:28pt}
+    header.cabecera{max-width:none;padding:.24in .45in .16in}
+    .bh{top:.18in;right:.45in;font-size:5.5pt;opacity:.75}
+    h1{font-size:26pt}
     .titular{margin-top:6pt;font-size:10.5pt}
-    .contacto{gap:26pt;margin-top:11pt}
+    .contacto{gap:26pt;margin-top:9pt}
     .et{font-size:6.8pt}
     .val{font-size:8.6pt}
 
     .hoja{max-width:none;margin:0;padding:0;flex:1;display:flex}
-    main{flex:1;display:grid;grid-template-columns:2.05in 1fr}
-    .anexo{grid-column:1;grid-row:1;background:var(--leve);padding:.18in .24in .2in .5in}
-    .principal{grid-column:2;padding:.16in .5in .16in .28in}
+    main{flex:1;display:grid;grid-template-columns:1.85in 1fr}
+    .anexo{grid-column:1;grid-row:1;background:var(--leve);padding:.16in .2in .16in .45in}
+    .principal{grid-column:2;padding:.14in .45in .14in .24in}
     .bloque{display:block;border:0;padding:0}
-    .bloque + .bloque{margin-top:8pt}
-    .principal > .experiencia{margin-top:0;padding-top:0}
-    h2,.experiencia > h2{font-size:9.6pt;margin-bottom:6pt}
+    .bloque + .bloque{margin-top:6pt}
+    .principal > .bloque:first-child{padding-top:0}
+    .sobre p{max-width:none;margin-bottom:2pt}
+    h2,.experiencia > h2{font-size:9.6pt;margin-bottom:5pt}
 
     .puesto{display:grid;grid-template-columns:1fr auto;gap:0;margin:0;
-            padding:0 0 5pt 14pt;--centro:6.6pt}
+            padding:0 0 4pt 14pt;--centro:6.6pt}
     .puesto:last-child{padding-bottom:0}
     .puesto > div{grid-column:1 / -1;grid-row:1}
     .cuando{grid-column:2;grid-row:1;padding-top:1.3pt;font-size:7.9pt;white-space:nowrap}
@@ -187,13 +188,13 @@
     .puesto::after{left:0;top:calc(var(--centro) - 3.6pt);width:7.2pt;height:7.2pt;border-width:1.3pt}
     .puesto h3{font-size:10pt}
     .empresa{font-size:8.4pt;margin-top:0}
-    .alcance{font-size:inherit;margin-top:2pt;max-width:none}
-    .puesto ul{margin-top:3.5pt;max-width:none}
-    .puesto li{padding-left:9pt;margin-bottom:1.2pt;font-size:inherit}
+    .alcance{font-size:inherit;margin-top:1pt;max-width:none}
+    .puesto ul{margin-top:2.5pt;max-width:none}
+    .puesto li{padding-left:9pt;margin-bottom:.8pt;font-size:inherit}
     .puesto li::before{top:.66em;width:5pt;height:.8pt}
 
     .lista{max-width:none}
-    .lista li{margin-bottom:4.5pt;font-size:inherit}
+    .lista li{margin-bottom:3.5pt;font-size:inherit}
     .anexo .lista{font-size:7.9pt}
     .grupos{display:block}
     .grupo{margin-bottom:6pt}
@@ -208,7 +209,7 @@
     .ref strong{font-size:inherit}
     .ref span{font-size:7.9pt}
     /* Al final para ganarle a .bloque{display:block} */
-    .btn,.sobre,.nota,footer{display:none}
+    .btn,.nota,footer{display:none}
   }
 </style>
 </head>
