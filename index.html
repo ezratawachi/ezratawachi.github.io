@@ -12,6 +12,7 @@
 <meta name="theme-color" content="#123f48" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
+<script>document.documentElement.classList.add('anima')</script>
 
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="es_PA">
@@ -47,6 +48,7 @@
     --banda:#0e4a55; --banda-tinta:#f4f9f9; --banda-suave:#a9cdd2;
     --letra:"ArchivoF","Avenir Next","Segoe UI",system-ui,sans-serif;
     --margen:10.5rem;
+    --ease-out:cubic-bezier(0.23,1,0.32,1);
   }
   @media (prefers-color-scheme:dark){
     :root{ --fondo:#0f1a1e; --tinta:#e4ecee; --petroleo:#7cc3cf; --suave:#9aaeb4;
@@ -141,6 +143,44 @@
   .ref span{font-size:.95rem;color:var(--suave)}
 
   footer{border-top:1px solid var(--linea);padding-top:24px;font-size:.87rem;color:var(--suave)}
+
+  /* Entrada, una sola vez: la cabecera aparece en cascada al cargar, y la línea de tiempo
+     se dibuja de puesto en puesto cuando Experiencia entra en pantalla. Solo en pantalla,
+     nunca en el PDF; sin JavaScript todo se ve quieto */
+  @keyframes entra{from{opacity:0;transform:translateY(8px)}}
+  @keyframes aparece{from{opacity:0}}
+  @keyframes punto{from{opacity:0;transform:scale(.6)}}
+  @keyframes traza{from{transform:scaleY(0)}}
+  .cabecera h1{--d:0ms}
+  .foto{--d:60ms}
+  .titular{--d:80ms}
+  .dato:nth-child(1){--d:140ms}
+  .dato:nth-child(2){--d:190ms}
+  .dato:nth-child(3){--d:240ms}
+  .dato:nth-child(4){--d:290ms}
+  .dato:nth-child(5){--d:340ms}
+  .btn{--d:400ms}
+  .puesto:nth-of-type(1){--p:0ms}
+  .puesto:nth-of-type(2){--p:150ms}
+  .puesto:nth-of-type(3){--p:300ms}
+  .puesto:nth-of-type(4){--p:450ms}
+  .puesto:nth-of-type(5){--p:600ms}
+  @media screen and (prefers-reduced-motion:no-preference){
+    .cabecera h1,.foto,.titular,.dato,.btn{animation:entra 560ms var(--ease-out) var(--d) both}
+    .anima .experiencia:not(.en-vista) .puesto::after{opacity:0}
+    .anima .experiencia:not(.en-vista) .puesto::before{transform:scaleY(0)}
+    .en-vista .puesto::after{animation:punto 320ms var(--ease-out) var(--p) both}
+    .en-vista .puesto::before{transform-origin:top;animation:traza 150ms linear calc(var(--p) + 80ms) both}
+  }
+  /* Con movimiento reducido: solo un fundido corto de la cabecera, sin desplazamientos */
+  @media screen and (prefers-reduced-motion:reduce){
+    .cabecera h1,.foto,.titular,.dato,.btn{animation:aparece 300ms ease both}
+  }
+  /* Al pasar el mouse por un puesto, su punto se rellena */
+  .puesto::after{transition:background-color 200ms ease}
+  @media (hover:hover) and (pointer:fine){
+    .puesto:hover::after{background:var(--petroleo)}
+  }
 
   @media (max-width:720px){
     .hoja{padding:0 16px 48px}
@@ -389,5 +429,16 @@
   </footer>
 
 </div>
+<script>
+  // Dibuja la línea de tiempo una sola vez, cuando Experiencia entra en pantalla
+  (function(){
+    var s=document.querySelector('.experiencia');
+    if(!s||!('IntersectionObserver' in window)){s&&s.classList.add('en-vista');return}
+    var o=new IntersectionObserver(function(e){
+      if(e[0].isIntersecting){s.classList.add('en-vista');o.disconnect()}
+    },{rootMargin:'0px 0px -20% 0px'});
+    o.observe(s);
+  })();
+</script>
 </body>
 </html>
