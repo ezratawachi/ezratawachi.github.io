@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ezra Tawachi — Operaciones y Automatización</title>
-<meta name="description" content="Operaciones y Automatización · SAP y E-commerce. Panamá.">
+<title>Ezra Tawachi — Operaciones, Automatización y Análisis de Datos</title>
+<meta name="description" content="Operaciones, Automatización y Análisis de Datos. Panamá.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#0e4a55" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#123f48" media="(prefers-color-scheme: dark)">
@@ -98,7 +98,7 @@
   .puesto{grid-column:1 / -1;display:grid;grid-template-columns:var(--margen) minmax(0,1fr);
           gap:0 2.5rem;margin-bottom:34px}
   .puesto:last-child{margin-bottom:0}
-  /* Línea de tiempo: une los puestos; el punto lleno marca el puesto actual */
+  /* Línea de tiempo: une los puestos */
   .puesto{position:relative;--eje:calc(var(--margen) + 1.25rem);--centro:12px}
   .puesto::before{content:"";position:absolute;left:calc(var(--eje) - 1px);width:2px;
                   top:var(--centro);bottom:calc(-34px - var(--centro));
@@ -107,7 +107,6 @@
   .puesto::after{content:"";position:absolute;left:calc(var(--eje) - 6px);top:calc(var(--centro) - 6px);
                  width:12px;height:12px;border-radius:50%;box-sizing:border-box;
                  border:2px solid var(--petroleo);background:var(--fondo)}
-  .puesto:first-of-type::after{background:var(--petroleo)}
   .cuando{font-size:.9rem;font-weight:500;color:var(--suave);padding-top:.2em;line-height:1.4}
   .puesto h3{font-size:1.2rem;font-weight:700;font-family:"Archivo106",var(--letra);line-height:1.25}
   .empresa{color:var(--petroleo);font-weight:600;font-size:.98rem;margin-top:2px}
@@ -123,6 +122,7 @@
   .lista li:last-child{margin-bottom:0}
   .lista .donde{color:var(--suave)}
   .nota{margin-top:14px;font-size:.84rem;color:var(--suave)}
+  .explica{font-size:.92rem;color:var(--suave);margin-bottom:12px;max-width:60ch}
 
   .grupos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px 34px}
   .grupo strong{display:block;font-size:.97rem;font-weight:650;margin-bottom:2px}
@@ -157,30 +157,30 @@
           --linea:#d9e0e2; --leve:#eef3f3;
           --banda:#0e4a55; --banda-tinta:#f4f9f9; --banda-suave:#a9cdd2}
     html,body{width:8.5in;height:11in}
-    body{font-size:8pt;line-height:1.31;display:flex;flex-direction:column;
+    body{font-size:8pt;line-height:1.22;display:flex;flex-direction:column;
          -webkit-print-color-adjust:exact;print-color-adjust:exact}
     a{text-decoration-thickness:.5pt;text-underline-offset:.15em}
 
-    header.cabecera{max-width:none;padding:.24in .45in .16in}
+    header.cabecera{max-width:none;padding:.18in .45in .12in}
     .bh{top:.18in;right:.45in;font-size:5.5pt;opacity:.75}
-    h1{font-size:26pt}
-    .titular{margin-top:6pt;font-size:10.5pt}
-    .contacto{gap:26pt;margin-top:9pt}
+    h1{font-size:24pt}
+    .titular{margin-top:4pt;font-size:10.5pt}
+    .contacto{gap:26pt;margin-top:7pt}
     .et{font-size:6.8pt}
     .val{font-size:8.6pt}
 
     .hoja{max-width:none;margin:0;padding:0;flex:1;display:flex}
-    main{flex:1;display:grid;grid-template-columns:1.85in 1fr}
-    .anexo{grid-column:1;grid-row:1;background:var(--leve);padding:.16in .2in .16in .45in}
-    .principal{grid-column:2;padding:.14in .45in .14in .24in}
+    main{flex:1;display:grid;grid-template-columns:1.75in 1fr}
+    .anexo{grid-column:1;grid-row:1;background:var(--leve);padding:.12in .2in .06in .45in}
+    .principal{grid-column:2;padding:.12in .45in .04in .24in}
     .bloque{display:block;border:0;padding:0}
-    .bloque + .bloque{margin-top:6pt}
+    .bloque + .bloque{margin-top:5pt}
     .principal > .bloque:first-child{padding-top:0}
     .sobre p{max-width:none;margin-bottom:2pt}
-    h2,.experiencia > h2{font-size:9.6pt;margin-bottom:5pt}
+    h2,.experiencia > h2{font-size:9.6pt;margin-bottom:3.5pt}
 
     .puesto{display:grid;grid-template-columns:1fr auto;gap:0;margin:0;
-            padding:0 0 4pt 14pt;--centro:6.6pt}
+            padding:0 0 3pt 14pt;--centro:6.4pt}
     .puesto:last-child{padding-bottom:0}
     .puesto > div{grid-column:1 / -1;grid-row:1}
     .cuando{grid-column:2;grid-row:1;padding-top:1.3pt;font-size:7.9pt;white-space:nowrap}
@@ -190,26 +190,29 @@
     .empresa{font-size:8.4pt;margin-top:0}
     .alcance{font-size:inherit;margin-top:1pt;max-width:none}
     .puesto ul{margin-top:2.5pt;max-width:none}
-    .puesto li{padding-left:9pt;margin-bottom:.8pt;font-size:inherit}
+    .puesto li{padding-left:9pt;margin-bottom:.4pt;font-size:inherit}
     .puesto li::before{top:.66em;width:5pt;height:.8pt}
 
     .lista{max-width:none}
-    .lista li{margin-bottom:3.5pt;font-size:inherit}
-    .anexo .lista{font-size:7.9pt}
+    .lista li{margin-bottom:2pt;font-size:inherit}
+    .anexo .lista{font-size:7.7pt}
+    .anexo .lista li{margin-bottom:1.5pt}
+    .anexo .bloque + .bloque{margin-top:4pt}
+    .explica{font-size:7.6pt;margin-bottom:4pt;font-style:italic}
     .grupos{display:block}
-    .grupo{margin-bottom:6pt}
+    .grupo{margin-bottom:3.5pt}
     .grupo:last-child{margin-bottom:0}
     .grupo strong{font-size:8.4pt;margin-bottom:0}
     .grupo span{font-size:7.9pt}
     .idiomas{display:block}
-    .idioma{display:flex;justify-content:space-between;padding:2.5pt 0;border-bottom:.5pt solid var(--linea)}
+    .idioma{display:flex;justify-content:space-between;padding:1.2pt 0;border-bottom:.5pt solid var(--linea)}
     .idioma:last-child{border-bottom:0}
     .idioma b{display:inline}
     .idioma span{font-size:inherit}
     .ref strong{font-size:inherit}
     .ref span{font-size:7.9pt}
     /* Al final para ganarle a .bloque{display:block} */
-    .btn,.nota,footer{display:none}
+    .btn,.nota,footer,.solo-web{display:none}
   }
 </style>
 </head>
@@ -219,7 +222,7 @@
   <header class="cabecera">
     <div class="bh">BH</div>
     <h1>Ezra Tawachi</h1>
-    <p class="titular">Operaciones y Automatización · <span class="junto">SAP y E-commerce</span></p>
+    <p class="titular">Operaciones, Automatización <span class="junto">y Análisis de Datos</span></p>
     <div class="contacto">
       <div class="dato"><span class="et">Teléfono</span><a class="val" href="tel:+50764931573">+507 6493-1573</a></div>
       <div class="dato"><span class="et">Email</span><span class="val">ezratawachi@gmail.com</span></div>
@@ -240,67 +243,76 @@
         y la mejora de procesos. Me gusta involucrarme, entender cómo funciona una operación
         y encontrar maneras de hacerla más eficiente, ya sea mediante automatización, nuevas
         herramientas o una mejor forma de trabajar.</p>
-      <p>Aprendo rápido, disfruto asumir nuevos retos y valoro especialmente los roles donde
-        puedo aportar ideas, construir soluciones y seguir desarrollándome profesionalmente.</p>
+      <p>Disfruto analizar un problema a fondo antes de resolverlo y construir soluciones que
+        simplifiquen el trabajo diario. Aprendo rápido y valoro los roles donde puedo aportar
+        ideas y seguir desarrollándome.</p>
     </section>
 
     <section class="bloque experiencia">
       <h2>Experiencia</h2>
       <article class="puesto">
-        <span class="cuando">2025 – presente</span>
+        <span class="cuando">Ene – Sep 2026</span>
         <div>
           <h3>Encargado de Amazon FBA</h3>
           <div class="empresa">Distribuidora Osher</div>
-          <p class="alcance">Operación diaria de Amazon del negocio: listings, publicidad, inventario, reportería y cargas masivas, preparando análisis y ejecuciones para aprobación.</p>
+          <p class="alcance">Tomé el canal de Amazon cuando era una prueba con pocos productos y quedé a cargo de toda la operación: catálogo, inventario, envíos a Amazon, campañas y reportería.</p>
           <ul>
-            <li>Creo y optimizo listings y ASINs: investigación de palabras clave con Helium 10 y revisión de desempeño para ajustar contenido y campañas.</li>
-            <li>Analizo campañas PPC y preparo ajustes de keywords, tipos de concordancia y negativas según conversión y costo.</li>
-            <li>Pasé la creación y actualización de productos, anuncios e imágenes a procesos bulk, y escribí un script en terminal que renombra lotes de imágenes con el formato que exige Amazon.</li>
-            <li>Automaticé reportería a partir de flat files usando herramientas de IA y flujos propios.</li>
-            <li>Gestioné trámites administrativos en Estados Unidos para la operación: registro de marca y renovaciones corporativas.</li>
+            <li>Reorganicé el catálogo: recreé productos y variaciones, e implementé SEO con investigación de palabras clave en Helium 10.</li>
+            <li>Implementé las campañas de publicidad (PPC) y las ajusté con datos de conversión y costo.</li>
+            <li>Creé los envíos a los centros de Amazon y coordiné las entregas hasta su llegada.</li>
+            <li>Pasé la creación y actualización de productos e imágenes a cargas masivas, y usé scripts en terminal para automatizar tareas repetitivas, como preparar imágenes y archivos para Amazon.</li>
+            <li>Automaticé reportes de ventas por producto y un cuadre de cada pago de Amazon, con el desglose de comisiones, costos de envío, publicidad y ganancia neta por producto.</li>
+            <li class="solo-web">Me encargué de poner al día los reportes anuales y pagos de la corporación en Estados Unidos, registré la marca (trademark) y la inscribí en Amazon Brand Registry.</li>
           </ul>
         </div>
       </article>
       <article class="puesto">
-        <span class="cuando">Abr 2025 – 2026</span>
+        <span class="cuando">Abr 2025 – Ago 2026</span>
         <div>
           <h3>Fundador</h3>
           <div class="empresa">Sheets Brewery · Tienda en Etsy</div>
           <p class="alcance">Tienda propia de productos digitales para Google Sheets, desde el desarrollo y la venta hasta la atención al cliente y la administración.</p>
           <ul>
-            <li>Creé un Team Task Tracker en Google Sheets con Apps Script: integración con Google Calendar, correos automáticos, Kanban, Pomodoro y soporte multilenguaje.</li>
-            <li>Iteré el producto a partir de las reseñas y los pedidos de los clientes.</li>
+            <li>Creé un Team Task Tracker en Google Sheets con Apps Script: tareas recurrentes automáticas, recordatorios por correo, sincronización con Google Calendar, Kanban y planificador con Pomodoro. Fue el producto más vendido, con más de la mitad de los pedidos.</li>
+            <li>Mejoré el producto a partir de las reseñas y pedidos de los clientes, y armé una guía web con audio para que pudieran configurarlo solos.</li>
             <li>Alcancé <strong>410 ventas</strong> y una calificación de <strong>4.8 sobre 5</strong> en 33 reseñas.</li>
-            <li>Constituí Sheets Brewery LLC en Estados Unidos, abrí la cuenta bancaria y gestioné los reportes anuales y el cumplimiento.</li>
+            <li class="solo-web">Constituí Sheets Brewery LLC en Estados Unidos, abrí la cuenta bancaria y gestioné los reportes anuales y el cumplimiento.</li>
           </ul>
+        </div>
+      </article>
+      <article class="puesto">
+        <span class="cuando">Ene – Mar 2025</span>
+        <div>
+          <h3>Proyecto propio</h3>
+          <div class="empresa">Core Suite</div>
+          <p class="alcance">Junto a un socio, exploré ideas de software con IA para empresas, desde un conjunto de herramientas por suscripción hasta una app de tareas. Por la alta competencia y el plazo corto que nos habíamos dado para lanzar, decidimos cerrar el proyecto.</p>
         </div>
       </article>
       <article class="puesto">
         <span class="cuando">Mar – Sep 2024</span>
         <div>
-          <h3>Implementación de SAP y Operaciones</h3>
+          <h3>Soporte Técnico · Implementación de SAP</h3>
           <div class="empresa">Farma 507</div>
           <p class="alcance">Parte del equipo de la implementación de SAP, con trabajo operativo en inventario, reportería y órdenes de compra.</p>
           <ul>
-            <li>Me formé en SAP con el equipo, probé los procesos antes de la salida en vivo y estuve en el go-live.</li>
-            <li>Escribí reportes SQL personalizados para consultas de inventario y operación.</li>
-            <li>Armé flujos en Sheets para convertir datos al formato de carga masiva de SAP, de productos y de órdenes.</li>
-            <li>Automaticé la preparación de órdenes de compra con OCR: PDF → CSV → Google Sheets → formato listo para cargar en SAP.</li>
-            <li>Creé herramientas rápidas para problemas operativos: un buscador de precios en Sheets y un control visual para priorizar despachos.</li>
+            <li>Me formé en SAP con el equipo, probé los procesos antes del arranque y apoyé la salida en vivo (go-live).</li>
+            <li>Escribí consultas SQL en SAP para revisar inventario y compras, y las conecté con un control de inventario en Google Sheets para la gerente de compras. <span class="solo-web">También preparé consultas para otras áreas, como contabilidad.</span></li>
+            <li>Armé flujos en Google Sheets para pasar productos y órdenes al formato de carga masiva de SAP. En las órdenes de compra, usé OCR para leer los PDF y convertirlos en datos listos para cargar.</li>
+            <li>Armé un sistema de herramientas en Google Sheets que usaban la bodega y las sucursales: buscador de precios por código de barras, control de despachos, pedidos de tiendas y encargos de clientes, y conteos cíclicos de inventario.</li>
           </ul>
         </div>
       </article>
       <article class="puesto">
-        <span class="cuando">Nov 2021 – Dic 2023</span>
+        <span class="cuando">Nov 2021 – Feb 2024</span>
         <div>
-          <h3>Encargado de Bodega y Operaciones</h3>
+          <h3>Operaciones de Bodega y Tienda Online</h3>
           <div class="empresa">Distribuidora Osher</div>
-          <p class="alcance">Bodega, despacho mayorista y operación del canal online, con supervisión de equipo y atención directa a clientes.</p>
+          <p class="alcance">Apoyé toda la operación de la distribuidora (bodega, despachos, conteos y compras) y estuve a cargo de la tienda online BHSuper.com: inventario, pedidos, sitio web y servicio al cliente.</p>
           <ul>
-            <li>Supervisé a 3 personas y me encargué de apertura y cierre de bodega, revisión de pedidos, conteo de bultos y carga a camiones.</li>
-            <li>Creé un verificador de empaque con OCR y Apps Script, además de controles de inventario con alertas de mínimos para apoyar el proceso de compras.</li>
-            <li>Automaticé las notificaciones de estado de pedido por WhatsApp y el flujo de reembolsos con Zapier y Sheets.</li>
-            <li>Atendí clientes del canal online con seguimiento directo por WhatsApp, y mantuve el sitio web.</li>
+            <li>Coordiné al equipo de bodega (choferes, ayudantes, preparación de pedidos y atención por WhatsApp) y, en una etapa, llevé a la vez la distribuidora y la tienda online, apoyado en automatizaciones y procesos propios.</li>
+            <li>Armé un verificador de pedidos antes del despacho: leía la lista de empaque con OCR, la ordenaba con Apps Script y, al escanear cada código de barras, mostraba lo que faltaba, lo que sobraba o si no cuadraban las unidades por caja.</li>
+            <li>Armé un control de inventario en Excel con macros: definí un stock mínimo por producto a partir del análisis de ventas, registraba las salidas con un código corto y el sistema avisaba qué productos estaban bajos para hacer los pedidos.</li>
+            <li>Conecté los pedidos de la tienda online a Google Sheets con Zapier y armé un panel que mostraba qué pedidos faltaba notificar por WhatsApp y a qué clientes avisar si faltaba algún producto.</li>
           </ul>
         </div>
       </article>
@@ -309,7 +321,6 @@
     <section class="bloque">
       <h2>Formación</h2>
       <ul class="lista">
-          <li>Python <span class="donde">— en curso, 2026</span></li>
           <li><a href="https://www.coursera.org/account/accomplishments/verify/7MT859OZQ4ZL">Fundamentos de Ciberseguridad</a> y <a href="https://www.coursera.org/account/accomplishments/verify/DCTFDIX5TKEP">Gestión de Riesgos</a> <span class="donde">— Google, 2025</span></li>
           <li><a href="https://www.coursera.org/account/accomplishments/verify/SRUUWY3J3MVL">Introduction to DevOps</a> <span class="donde">— IBM, 2024</span></li>
           <li><a href="https://www.coursera.org/account/accomplishments/specialization/4EYF7XZH27SH">Especialización en Desarrollo Web</a> (HTML, CSS, JS) · <a href="https://www.coursera.org/account/accomplishments/records/T5YFG4VYHR7L">PHP</a> · <a href="https://www.coursera.org/account/accomplishments/records/YHCLNLURUXU3">SQL</a> <span class="donde">— University of Michigan, 2020</span></li>
@@ -323,11 +334,11 @@
     <section class="bloque">
       <h2>Habilidades</h2>
       <div class="grupos">
-        <div class="grupo"><strong>Automatización y productividad</strong><span>Google Apps Script · Zapier · Google Sheets avanzado · Google Workspace · OCR</span></div>
-        <div class="grupo"><strong>Datos y ERP</strong><span>SQL · SAP · Reportería · Cargas masivas · Inventario</span></div>
-        <div class="grupo"><strong>E-commerce</strong><span>Amazon Seller Central (FBA) · Helium 10 · PPC · SEO de listings · Etsy</span></div>
-        <div class="grupo"><strong>IA aplicada</strong><span>ChatGPT · Claude · Codex — scripting, automatización, análisis y creación de herramientas</span></div>
-        <div class="grupo"><strong>Desarrollo</strong><span>Python (en formación) · Terminal</span></div>
+        <div class="grupo"><strong>Automatización y productividad</strong><span>Google Apps Script · Zapier · n8n · Google Sheets avanzado · Excel y macros · Google Workspace</span></div>
+        <div class="grupo"><strong>Datos y ERP</strong><span>Análisis de datos · SQL · SAP · Reportería · Cargas masivas · Inventario</span></div>
+        <div class="grupo"><strong>Comercio en línea</strong><span>Amazon Seller Central (FBA) · Helium 10 · Etsy · WooCommerce</span></div>
+        <div class="grupo"><strong>Desarrollo de software con IA</strong><span>Planifico y construyo por fases: apps, automatizaciones y agentes · Claude · Codex · ChatGPT</span></div>
+        <div class="grupo"><strong>Lenguajes</strong><span>Python · JavaScript · HTML · CSS · Terminal (lectura y escritura básica)</span></div>
       </div>
     </section>
 
@@ -341,11 +352,12 @@
     </section>
 
     <section class="bloque">
-      <h2>Estudios en yeshivá</h2>
+      <h2>Estudios talmúdicos</h2>
+      <p class="explica">Estudio a tiempo completo de textos jurídicos judíos, centrado en el análisis de argumentos.</p>
       <ul class="lista">
-          <li>Beit Matitiyahu <span class="donde">— Rab Baruch Vaisbiker z”l · Bnei Brak, Israel · 2018 – 2020</span></li>
-          <li>Ohel Torá <span class="donde">— Rab Yaakov Harari · Lakewood, Nueva Jersey · 2020 – 2021</span></li>
-          <li>Yeshiva Gedola of Elkins Park <span class="donde">— Rab Yehoshua Rubanowitz · Tannersville, Nueva York · Abr – Nov 2021</span></li>
+          <li>Beit Matitiyahu <span class="donde">— Rabino Baruch Vaisbiker z”l · Bnei Brak, Israel · <span class="junto">2018 – 2020</span></span></li>
+          <li>Ohel Torá <span class="donde">— Rabino Yaakov Harari · Lakewood, NJ, EE.&nbsp;UU. · <span class="junto">2020 – Mar 2021</span></span></li>
+          <li>Yeshiva Gedola of Elkins Park <span class="donde">— Rabino Yehoshua Rubanowitz · Tannersville, NY, EE.&nbsp;UU. · <span class="junto">Abr – Nov 2021</span></span></li>
       </ul>
     </section>
 
