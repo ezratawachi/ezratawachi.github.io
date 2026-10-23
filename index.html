@@ -72,6 +72,9 @@
   .titular{margin-top:18px;font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:500;
            line-height:1.35}
   .junto{white-space:nowrap}
+  /* Foto pequeña al costado del nombre: que no sea lo principal */
+  .foto{position:absolute;right:32px;top:72px;width:64px;height:64px;border-radius:50%;
+        object-fit:cover;border:1.5px solid var(--banda-suave)}
   .contacto{display:flex;flex-wrap:wrap;align-items:end;gap:18px 34px;margin-top:34px}
   .dato{display:flex;flex-direction:column}
   .et{font-size:.78rem;color:var(--banda-suave)}
@@ -143,6 +146,7 @@
     .hoja{padding:0 16px 48px}
     header.cabecera{padding:56px 16px 38px}
     .bh{right:16px}
+    .foto{right:16px;top:56px;width:44px;height:44px}
     .btn{margin-left:0}
     .bloque,.puesto{grid-template-columns:minmax(0,1fr)}
     .bloque > *,.bloque > h2,.puesto > *{grid-column:1;grid-row:auto}
@@ -167,9 +171,11 @@
     .bh{top:.18in;right:.45in;font-size:5.5pt;opacity:.75}
     h1{font-size:24pt}
     .titular{margin-top:4pt;font-size:10.5pt}
-    .contacto{gap:26pt;margin-top:7pt}
+    .contacto{gap:19pt;margin-top:7pt;padding-right:.78in}
     .et{font-size:6.8pt}
     .val{font-size:8.6pt}
+    .foto{display:block;position:absolute;right:.45in;top:.34in;width:.68in;height:.68in;
+          border-radius:50%;object-fit:cover;border:1pt solid var(--banda-suave)}
 
     .hoja{max-width:none;margin:0;padding:0;flex:1;display:flex}
     main{flex:1;display:grid;grid-template-columns:1.75in 1fr}
@@ -225,11 +231,13 @@
 <div class="banda">
   <header class="cabecera">
     <div class="bh">BH</div>
+    <img class="foto" src="foto-cv.jpg" alt="" width="160" height="160">
     <h1>Ezra Tawachi</h1>
     <p class="titular">Operaciones, Automatización <span class="junto">y Análisis de Datos</span></p>
     <div class="contacto">
       <div class="dato"><span class="et">Teléfono</span><a class="val" href="tel:+50764931573">+507 6493-1573</a></div>
       <div class="dato"><span class="et">Email</span><span class="val">ezratawachi@gmail.com</span></div>
+      <div class="dato"><span class="et">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/ezratawachi">linkedin.com/in/ezratawachi</a></div>
       <div class="dato"><span class="et">Ubicación</span><span class="val">Panamá</span></div>
       <div class="dato"><span class="et">Modalidad</span><span class="val">Presencial, híbrido o remoto</span></div>
       <a class="btn" href="CV-Ezra-Tawachi.pdf">Descargar CV en PDF</a>
